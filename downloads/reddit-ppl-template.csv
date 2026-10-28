@@ -1,11 +1,11 @@
 Week,Day,Exercise,Sets,Reps,RPE,%1RM,Weight,Rest,Technique,Notes
-1,Pull A,Deadlift,1,5,8,,,2 min,AMRAP,Alternates with barbell row as the first lift
+1,Pull A,Deadlift,1,5,8,,,2 min,AMRAP,Pull B starts with barbell row instead
 1,Pull A,Lat pulldown,3,8-12,8,,,90 sec,,
 1,Pull A,Seated cable row,3,8-12,8,,,90 sec,,
 1,Pull A,Face pull,5,15-20,8,,,90 sec,,
 1,Pull A,Hammer curl,4,8-12,8,,,90 sec,,
 1,Pull A,Dumbbell curl,4,8-12,8,,,90 sec,,
-1,Push A,Bench press,5,5,8,,,2 min,AMRAP,Alternates with overhead press as the first lift
+1,Push A,Bench press,5,5,8,,,2 min,AMRAP,Push B starts with overhead press instead
 1,Push A,Overhead press,3,8-12,8,,,90 sec,,
 1,Push A,Incline dumbbell press,3,8-12,8,,,90 sec,,
 1,Push A,Triceps pushdown,3,8-12,8,,,90 sec,,
@@ -16,14 +16,14 @@ Week,Day,Exercise,Sets,Reps,RPE,%1RM,Weight,Rest,Technique,Notes
 1,Legs A,Leg press,3,8-12,8,,,90 sec,,
 1,Legs A,Leg curl,3,8-12,8,,,90 sec,,
 1,Legs A,Calf raise,5,8-12,8,,,90 sec,,
-1,Pull B,Deadlift,1,5,8,,,2 min,AMRAP,Alternates with barbell row as the first lift
+1,Pull B,Barbell row,5,5,8,,,2 min,AMRAP,Pull A starts with deadlift instead
 1,Pull B,Lat pulldown,3,8-12,8,,,90 sec,,
 1,Pull B,Seated cable row,3,8-12,8,,,90 sec,,
 1,Pull B,Face pull,5,15-20,8,,,90 sec,,
 1,Pull B,Hammer curl,4,8-12,8,,,90 sec,,
 1,Pull B,Dumbbell curl,4,8-12,8,,,90 sec,,
-1,Push B,Bench press,5,5,8,,,2 min,AMRAP,Alternates with overhead press as the first lift
-1,Push B,Overhead press,3,8-12,8,,,90 sec,,
+1,Push B,Overhead press,5,5,8,,,2 min,AMRAP,Push A starts with bench press instead
+1,Push B,Bench press,3,8-12,8,,,90 sec,,
 1,Push B,Incline dumbbell press,3,8-12,8,,,90 sec,,
 1,Push B,Triceps pushdown,3,8-12,8,,,90 sec,,
 1,Push B,Overhead triceps extension,3,8-12,8,,,90 sec,,
