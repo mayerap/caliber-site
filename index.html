@@ -12,9 +12,10 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://caliberperpetual.com/">
 <meta property="og:title" content="Caliber: Perpetual Training">
+<meta property="og:image" content="https://caliberperpetual.com/screens/today.jpg">
 <meta property="og:description" content="Bring your spreadsheet program. Caliber makes it adaptive and keeps building the next block when it ends.">
 <meta name="theme-color" content="#14110E">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314110E'/%3E%3Cpath d='M24.5 8.2A11.5 11.5 0 1 0 24.5 23.8' fill='none' stroke='%23FF8A3D' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23F2EDE6'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314110E'/%3E%3Cpath d='M25.2 8.6A11 11 0 1 0 25.2 23.4' fill='none' stroke='%23F2EDE6' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.6' fill='%23FF8A3D'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
@@ -73,6 +74,42 @@ h1{font-size:clamp(44px,8.4vw,108px);line-height:.92;margin:0;font-weight:780;fo
 .lede{font-size:clamp(18px,2vw,21px);color:var(--muted);max-width:34em;margin:28px 0 32px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .hero-cta small{color:var(--muted);font-size:15px;flex-basis:100%}
+
+/* Hero render */
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.lede strong{color:var(--text);font-weight:650}
+.stage{position:relative;aspect-ratio:1/1;width:100%;max-width:560px;justify-self:end;border-radius:24px;overflow:hidden;
+  background:#0F0C0A;border:1px solid #2A221B;box-shadow:0 30px 80px -30px rgba(232,102,42,.35)}
+.stage canvas{display:block;width:100%;height:100%}
+.stage .fb{display:none;position:absolute;inset:0;margin:auto;width:46%;height:46%}
+.stage.fallback canvas{display:none}
+.stage.fallback .fb{display:block}
+.hud{position:absolute;left:20px;top:16px;display:flex;flex-direction:column;gap:2px;color:#F2EDE6;pointer-events:none}
+.hud span{font-size:13px;color:#C9BFB3;letter-spacing:.02em}
+.hud b{font-size:clamp(30px,4.2vw,44px);line-height:1;font-weight:780;font-variation-settings:"wdth" 112;font-variant-numeric:tabular-nums;
+  text-shadow:0 0 24px rgba(255,122,48,.45)}
+.hud.pop b{animation:pop .45s ease-out}
+@keyframes pop{0%{transform:scale(1.12);color:#FFB27A}100%{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.hud.pop b{animation:none}}
+/* Real app screens */
+.screens{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
+.screens figure{margin:0}
+.phone{border-radius:34px;padding:8px;background:#0B0A09;border:1px solid #2E261F;
+  box-shadow:0 24px 60px -28px rgba(232,102,42,.45),0 0 0 1px rgba(255,255,255,.03) inset}
+.phone img{display:block;width:100%;height:auto;border-radius:27px}
+.screens figcaption{margin-top:14px}
+.screens figcaption b{display:block;font-size:17px;font-weight:700;font-variation-settings:"wdth" 108}
+.screens figcaption span{color:var(--muted);font-size:15px}
+@media (max-width:980px){
+  .screens{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:36px -24px 0;padding:0 24px 12px;scrollbar-width:none}
+  .screens::-webkit-scrollbar{display:none}
+  .screens figure{flex:0 0 min(64vw,260px);scroll-snap-align:start}
+}
+.stage-cap{position:absolute;left:18px;bottom:14px;font-size:13px;color:#A79E93;letter-spacing:.02em}
+@media (max-width:820px){
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .stage{justify-self:stretch;max-width:none;aspect-ratio:5/4}
+}
 
 /* Perpetual track (the one memorable thing) */
 .track{position:relative;margin:64px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
@@ -206,6 +243,8 @@ footer a:hover{color:var(--text)}
 }
 @media (max-width:480px){
   .wrap{padding:0 16px}
+  .screens{margin:36px -16px 0;padding:0 16px 12px}
+  .hud{left:16px;top:12px}
   .steps{grid-template-columns:1fr}
   .wk{width:24px}
   .nav .btn{padding:0 12px}
@@ -220,8 +259,8 @@ footer a:hover{color:var(--text)}
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Caliber: Perpetual Training home">
       <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
-        <path d="M24.5 8.2A11.5 11.5 0 1 0 24.5 23.8" fill="none" stroke="var(--ember-hot)" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="16" cy="16" r="3.4" fill="var(--text)"/>
+        <path d="M25.2 8.6A11 11 0 1 0 25.2 23.4" fill="none" stroke="var(--text)" stroke-width="5"/>
+        <circle cx="16" cy="16" r="4.6" fill="var(--ember-hot)"/>
       </svg>
       <span>CALIBER</span>
     </a>
@@ -231,15 +270,24 @@ footer a:hover{color:var(--text)}
 
 <main id="top">
   <div class="hero">
-    <div class="wrap">
-      <h1>There’s always a next block.</h1>
-      <p class="lede">Caliber runs the program you already trust, imported straight from your spreadsheet, at the gym, at home, or both. It adapts every set to you, and when the program ends, it builds the next six weeks from your new numbers.</p>
+    <div class="wrap hero-grid">
+      <div>
+      <h1>Strong never ends.</h1>
+      <p class="lede"><strong>There’s always a next block.</strong> Caliber runs the program you already trust, imported straight from your spreadsheet, at the gym, at home, or both. It adapts every set to you, and when the program ends, it builds the next six weeks from your new numbers.</p>
       <div class="hero-cta">
         <a class="btn" href="https://testflight.apple.com/join/PNBhgfvy" rel="noopener">Try the free beta</a>
         <a class="btn ghost" href="#join">Get launch news</a>
         <small>Free beta on iPhone and Apple Watch through TestFlight. Free trial at launch.</small>
       </div>
+      </div>
+      <div class="stage" id="stage" aria-hidden="true">
+        <canvas id="plate"></canvas>
+        <svg class="fb" viewBox="0 0 32 32"><path d="M25.2 8.6A11 11 0 1 0 25.2 23.4" fill="none" stroke="#F2EDE6" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="#FF8A3D"/></svg>
+        <div class="hud"><span id="hudSub">Next block loading</span><b id="hudLoad">45 lb</b></div>
+        <span class="stage-cap">Every block builds the next</span>
+      </div>
     </div>
+
 
     <div class="track" aria-label="Six-week training blocks rolling continuously into the next block">
       <div class="lane" id="lane"></div>
@@ -253,6 +301,23 @@ footer a:hover{color:var(--text)}
       </div>
     </div>
   </div>
+
+  <section id="screens">
+    <div class="wrap">
+      <h2>This is the app.</h2>
+      <p class="sub">Real screens from Caliber, not mockups.</p>
+      <div class="screens">
+        <figure><div class="phone"><img src="screens/today.jpg" width="600" height="1301" alt="Caliber Today screen showing Upper B with overhead press at 120 pounds" loading="lazy" decoding="async"></div>
+          <figcaption><b>Today, ready to lift</b><span>Your session, loads and week at a glance.</span></figcaption></figure>
+        <figure><div class="phone"><img src="screens/home.jpg" width="600" height="1301" alt="Caliber at home: Lower B adjusted to home equipment and plates" loading="lazy" decoding="async"></div>
+          <figcaption><b>Same program, at home</b><span>Swaps and loads adjust to your garage.</span></figcaption></figure>
+        <figure><div class="phone"><img src="screens/logger.jpg" width="600" height="1301" alt="Caliber workout logger showing overhead press sets and plate loading" loading="lazy" decoding="async"></div>
+          <figcaption><b>Every set, coached</b><span>Plate math, rest timer and reps in reserve.</span></figcaption></figure>
+        <figure><div class="phone"><img src="screens/cardio.jpg" width="600" height="1301" alt="Caliber live interval session on hard round 3 of 10" loading="lazy" decoding="async"></div>
+          <figcaption><b>Guided cardio</b><span>Intervals with heart-rate targets.</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
 
   <section id="problem">
     <div class="wrap">
@@ -433,6 +498,204 @@ footer a:hover{color:var(--text)}
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// Hero render: plates load onto a bar sleeve one block at a time. Every block builds the next.
+(function(){
+  const stage = document.getElementById('stage'), canvas = document.getElementById('plate');
+  const hud = stage && stage.querySelector('.hud'), hudSub = document.getElementById('hudSub'), hudLoad = document.getElementById('hudLoad');
+  if(!stage || !canvas) return;
+  if(!window.THREE){ stage.classList.add('fallback'); return; }
+  let renderer;
+  try{ renderer = new THREE.WebGLRenderer({ canvas, antialias:true }); }catch(e){ stage.classList.add('fallback'); return; }
+  const T = THREE;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputEncoding = T.sRGBEncoding;
+  renderer.toneMapping = T.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+  renderer.setClearColor(0x0F0C0A, 1);
+  const scene = new T.Scene();
+  const camera = new T.PerspectiveCamera(30, 1, 0.1, 60);
+  const camBase = new T.Vector3(2.5, 1.4, 5.5), look = new T.Vector3(-.35, -.08, 0);
+
+  // Studio for metal reflections
+  const env = new T.Scene();
+  env.background = new T.Color(0x0b0908);
+  const box = (c, w, h, x, y, z) => { const m = new T.Mesh(new T.PlaneGeometry(w, h), new T.MeshBasicMaterial({ color:c, side:T.DoubleSide })); m.position.set(x, y, z); m.lookAt(0, 0, 0); env.add(m); };
+  box(0xffe2c2, 6, 3, -3, 5, 5); box(0xff6a2a, 10, 1.4, 2, -4, -2); box(0x8aa0b8, 2.5, 6, 7, 1, 2);
+  const pmrem = new T.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(env, 0.04).texture;
+
+  // Shared textures and materials
+  const glowTex = (() => { const c = document.createElement('canvas'); c.width = c.height = 128; const x = c.getContext('2d');
+    const r = x.createRadialGradient(64, 64, 0, 64, 64, 64); r.addColorStop(0, 'rgba(255,150,80,1)'); r.addColorStop(.4, 'rgba(232,102,42,.35)'); r.addColorStop(1, 'rgba(232,102,42,0)');
+    x.fillStyle = r; x.fillRect(0, 0, 128, 128); return new T.CanvasTexture(c); })();
+  const iron = new T.MeshStandardMaterial({ color:0x151210, metalness:.75, roughness:.48, envMapIntensity:.45, side:T.DoubleSide });
+  const steel = new T.MeshStandardMaterial({ color:0x9da3a9, metalness:1, roughness:.28, envMapIntensity:.8 });
+  const bone = new T.MeshStandardMaterial({ color:0xefe8df, metalness:.55, roughness:.3, emissive:0x2a2118, emissiveIntensity:.4 });
+  const ember = new T.MeshStandardMaterial({ color:0x1a1512, emissive:0xff6a2a, emissiveIntensity:1.7, metalness:.3, roughness:.4 });
+  function labelTex(text){
+    const c = document.createElement('canvas'); c.width = c.height = 1024; const g = c.getContext('2d');
+    g.translate(512, 512); g.fillStyle = 'rgba(232,222,210,.6)'; g.font = '600 52px Archivo, "Arial Narrow", sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
+    const step = (Math.PI * 2) / text.length;
+    [...text].forEach((ch, i) => { g.save(); g.rotate(i * step); g.translate(0, -420); g.fillText(ch, 0, 0); g.restore(); });
+    const t = new T.CanvasTexture(c); t.encoding = T.sRGBEncoding; t.anisotropy = 4; return t;
+  }
+
+  // Bar: inner shaft, shoulder collar, sleeve
+  const bar = new T.Group(); scene.add(bar);
+  const cyl = (r, len, mat, x) => { const m = new T.Mesh(new T.CylinderGeometry(r, r, len, 48), mat); m.rotation.z = Math.PI / 2; m.position.x = x; bar.add(m); return m; };
+  cyl(.07, 4, steel, -3.3); cyl(.2, .14, steel, -1.33); cyl(.105, 3.6, steel, .52); cyl(.112, .04, steel, 2.32);
+
+  // Plates: [lb, radius, half thickness]
+  const SPECS = { 45:[1, .1], 25:[.78, .085], 10:[.6, .065], 5:[.47, .055] };
+  const SEQ = [45, 45, 45, 25, 10, 5];
+  const prof = [[.11,-.10],[.11,.10],[.20,.10],[.22,.07],[.30,.06],[.32,.04],[.80,.04],[.83,.09],[.98,.10],[1,.08],[1,-.08],[.98,-.10],[.83,-.09],[.80,-.04],[.32,-.04],[.30,-.06],[.22,-.07],[.20,-.10],[.11,-.10]];
+  const geoCache = {};
+  function plateGeo(lb){
+    if(geoCache[lb]) return geoCache[lb];
+    const [r, h] = SPECS[lb];
+    const g = new T.LatheGeometry(prof.map(([x, y]) => new T.Vector2(x === .11 ? .11 : x * r, y * h / .1)), 160);
+    g.rotateZ(-Math.PI / 2);   // plate axis along the bar
+    return (geoCache[lb] = g);
+  }
+  const labels = { 45:labelTex('CALIBER \u00b7 45 LB \u00b7 CALIBER \u00b7 45 LB \u00b7 '), 25:labelTex('25 LB \u00b7 25 LB \u00b7 25 LB \u00b7 '), 10:labelTex('10 \u00b7 10 \u00b7 10 \u00b7 10 \u00b7 '), 5:labelTex('5 \u00b7 5 \u00b7 5 \u00b7 5 \u00b7 5 \u00b7 ') };
+  let cursor = -1.26;
+  const plates = SEQ.map(lb => {
+    const [r, h] = SPECS[lb], g = new T.Group();
+    g.add(new T.Mesh(plateGeo(lb), iron));
+    const face = new T.Mesh(new T.PlaneGeometry(1.6 * r, 1.6 * r), new T.MeshStandardMaterial({ map:labels[lb], transparent:true, metalness:.5, roughness:.6, depthWrite:false }));
+    face.rotation.y = Math.PI / 2; face.position.x = h * .42; g.add(face);
+    if(lb === 45){
+      // The Caliber mark: a light C around a glowing ember hub
+      const c = new T.Mesh(new T.TorusGeometry(.52, .055, 20, 160, Math.PI * 1.55), bone);
+      c.rotation.y = Math.PI / 2; c.rotation.x = Math.PI * .225; c.position.x = h * .45; g.add(c);
+      const hub = new T.Mesh(new T.RingGeometry(.112, .2, 64), new T.MeshBasicMaterial({ color:0xff7a33, side:T.DoubleSide }));
+      hub.rotation.y = Math.PI / 2; hub.position.x = h * 1.01; g.add(hub);
+      const hubGlow = new T.Sprite(new T.SpriteMaterial({ map:glowTex, transparent:true, opacity:.35, depthWrite:false, blending:T.AdditiveBlending }));
+      hubGlow.scale.set(.9, .9, 1); hubGlow.position.x = h * 1.2; g.add(hubGlow);
+    }
+    const target = cursor + h; cursor += h * 2 + .006;
+    g.visible = false; scene.add(g);
+    return { g, lb, r, h, target };
+  });
+  // Spring collar
+  const collar = new T.Group();
+  const ring = new T.Mesh(new T.TorusGeometry(.14, .032, 16, 60), steel); ring.rotation.y = Math.PI / 2; collar.add(ring);
+  const tab = new T.Mesh(new T.BoxGeometry(.04, .2, .05), steel); tab.position.set(0, .2, 0); collar.add(tab);
+  collar.visible = false; scene.add(collar);
+  const collarTarget = cursor + .04;
+
+  // Glow behind the bar and under the stack
+  const back = new T.Sprite(new T.SpriteMaterial({ map:glowTex, transparent:true, opacity:.5, depthWrite:false, blending:T.AdditiveBlending }));
+  back.scale.set(5.2, 5.2, 1); back.position.set(-1.4, -.2, -1.6); scene.add(back);
+
+  // Lights
+  scene.add(new T.AmbientLight(0xffffff, .12));
+  const key = new T.DirectionalLight(0xfff1e0, 1.5); key.position.set(3, 5, 6); scene.add(key);
+  const rim = new T.PointLight(0xff6a2a, 3, 10); rim.position.set(-2.5, -1.2, -2); scene.add(rim);
+  const under = new T.PointLight(0xff7a33, 1.6, 7); under.position.set(0, -2.4, 2); scene.add(under);
+
+  // Particles: slow embers rising, plus a burst of sparks each time a plate lands
+  const N = 260, pos = new Float32Array(N * 3), col = new Float32Array(N * 3), P = [];
+  for(let i = 0; i < N; i++) P.push({ life:1, max:1, vx:0, vy:0, vz:0, g:0, burst:false });
+  const ambient = i => { const p = P[i]; Object.assign(p, { life:0, max:2.5 + Math.random() * 2.5, vx:(Math.random() - .5) * .1, vy:.25 + Math.random() * .45, vz:0, g:0, burst:false });
+    pos[i*3] = -2.6 + Math.random() * 4.6; pos[i*3+1] = -1.7 - Math.random() * .3; pos[i*3+2] = (Math.random() - .5) * 2; };
+  for(let i = 0; i < 70; i++){ ambient(i); P[i].life = Math.random() * P[i].max; }
+  let burstNext = 70;
+  function burst(x, r){
+    for(let k = 0; k < 34; k++){
+      const i = burstNext; burstNext = burstNext + 1 >= N ? 70 : burstNext + 1;
+      const a = Math.random() * Math.PI * 2, rr = r * (.85 + Math.random() * .15);
+      pos[i*3] = x; pos[i*3+1] = Math.sin(a) * rr; pos[i*3+2] = Math.cos(a) * rr;
+      const sp = 1.2 + Math.random() * 2.2;
+      Object.assign(P[i], { life:0, max:.5 + Math.random() * .6, vx:.6 + Math.random() * 1.6, vy:Math.sin(a) * sp, vz:Math.cos(a) * sp, g:-4.5, burst:true });
+    }
+  }
+  const sg = new T.BufferGeometry();
+  sg.setAttribute('position', new T.BufferAttribute(pos, 3)); sg.setAttribute('color', new T.BufferAttribute(col, 3));
+  scene.add(new T.Points(sg, new T.PointsMaterial({ size:.05, map:glowTex, vertexColors:true, transparent:true, depthWrite:false, blending:T.AdditiveBlending })));
+  function stepParticles(dt){
+    for(let i = 0; i < N; i++){
+      const p = P[i];
+      p.life += dt;
+      if(p.life >= p.max){ if(i < 70) ambient(i); else { col[i*3] = col[i*3+1] = col[i*3+2] = 0; continue; } }
+      p.vy += p.g * dt;
+      pos[i*3] += p.vx * dt; pos[i*3+1] += p.vy * dt; pos[i*3+2] += p.vz * dt;
+      const f = p.life / p.max, b = p.burst ? (1 - f) * 1.6 : Math.sin(f * Math.PI) * (.55 + .45 * Math.sin(i * 12.9 + p.life * 9));
+      col[i*3] = b; col[i*3+1] = b * (p.burst ? .62 : .45); col[i*3+2] = b * (p.burst ? .3 : .15);
+    }
+    sg.attributes.position.needsUpdate = true; sg.attributes.color.needsUpdate = true;
+  }
+
+  // Timeline for one cycle (seconds)
+  const SLIDE = .62, GAP = 1.15, FIRST = .7;
+  const landAt = plates.map((_, i) => FIRST + i * GAP + SLIDE);
+  const collarStart = landAt[landAt.length - 1] + .35, collarEnd = collarStart + .45;
+  const clearStart = collarEnd + 2.4, CYCLE = clearStart + 1.25;
+  const easeOut = p => 1 - Math.pow(1 - p, 3), easeIn = p => p * p * p;
+  let cycle = -1, landed = 0, shake = 0, shown = 45, target = 45, subText = '';
+  function setSub(t){ if(t !== subText){ subText = t; hudSub.textContent = t; } }
+  function sideLoad(n){ return plates.slice(0, n).reduce((a, p) => a + p.lb, 0); }
+  function update(ct){
+    plates.forEach((p, i) => {
+      const st = FIRST + i * GAP, outAt = clearStart + (plates.length - 1 - i) * .08;
+      if(ct < st){ p.g.visible = false; return; }
+      p.g.visible = true;
+      let x, y = 0;
+      if(ct < st + SLIDE){ const e = easeOut((ct - st) / SLIDE); x = 4.2 + (p.target - 4.2) * e; y = (1 - e) * .35; }
+      else if(ct < outAt){ x = p.target; }
+      else { const q = Math.min(1, (ct - outAt) / .5); x = p.target + (6 - p.target) * easeIn(q); if(q >= 1) p.g.visible = false; }
+      p.g.position.set(x, y, 0);
+      if(i >= landed && ct >= landAt[i] && ct < clearStart){
+        landed = i + 1; burst(p.target - p.h, p.r); shake = .06;
+        target = 45 + 2 * sideLoad(landed); setSub(`Block ${landed}`);
+        hud.classList.remove('pop'); void hud.offsetWidth; hud.classList.add('pop');
+      }
+    });
+    if(ct >= collarStart && ct < clearStart + .5){
+      collar.visible = true;
+      const q = Math.min(1, (ct - collarStart) / (collarEnd - collarStart));
+      collar.position.x = (ct < clearStart) ? 4.2 + (collarTarget - 4.2) * easeOut(q) : collarTarget + (6 - collarTarget) * easeIn(Math.min(1, (ct - clearStart) / .4));
+      if(ct >= collarEnd && ct < clearStart) setSub(`Block ${landed}. Locked in.`);
+    } else collar.visible = false;
+    if(ct >= clearStart){ setSub('Repeat, stronger'); target = 45; }
+    else if(landed === 0) setSub('Next block loading');
+  }
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let running = true, t = 0, last = performance.now(), px = 0, py = 0;
+  stage.addEventListener('pointermove', e => { const r = stage.getBoundingClientRect(); px = (e.clientX - r.left) / r.width - .5; py = (e.clientY - r.top) / r.height - .5; });
+  stage.addEventListener('pointerleave', () => { px = py = 0; });
+  function place(){ camera.position.set(camBase.x + px * .8 + (Math.random() - .5) * shake, camBase.y - py * .6 + (Math.random() - .5) * shake, camBase.z); camera.lookAt(look); }
+  function staticFrame(){
+    plates.forEach(p => { p.g.visible = true; p.g.position.set(p.target, 0, 0); });
+    collar.visible = true; collar.position.x = collarTarget;
+    hudSub.textContent = `Block ${plates.length}`; hudLoad.textContent = `${45 + 2 * sideLoad(plates.length)} lb`;
+    place(); renderer.render(scene, camera);
+  }
+  function size(){ const w = stage.clientWidth, h = stage.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h;
+    camera.fov = w / h < 1.1 ? 33 : 30; camera.updateProjectionMatrix(); if(reduce) staticFrame(); }
+  new ResizeObserver(size).observe(stage); size();
+  new IntersectionObserver(es => { running = es[0].isIntersecting; }).observe(stage);
+  if(reduce){ staticFrame(); return; }
+  (function frame(now){
+    const dt = Math.min((now - last) / 1000, .05); last = now;
+    if(running){
+      t += dt;
+      const c = Math.floor(t / CYCLE), ct = t - c * CYCLE;
+      if(c !== cycle){ cycle = c; landed = 0; target = 45; }
+      update(ct);
+      shown += (target - shown) * Math.min(1, dt * 9);
+      hudLoad.textContent = `${Math.round(shown)} lb`;
+      shake *= .86; ember.emissiveIntensity = 1.55 + Math.sin(t * 2.3) * .15;
+      camBase.x = 2.5 + Math.sin(t * .23) * .3;
+      place(); stepParticles(dt); renderer.render(scene, camera);
+    }
+    requestAnimationFrame(frame);
+  })(last);
+})();
+</script>
 <script>
 // Launch list: saved to the waitlist table in Caliber's Supabase project (supabase/migrations/20261028000000_waitlist.sql).
 // The publishable key can only add an address; it can't read the list.
