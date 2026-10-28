@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Caliber: Perpetual Training | Strength program, gym or home</title>
+<!-- caliberperpetual.com, hosted on GitHub Pages (repo mayerap/caliber-site). Based on the marketing landing page
+     (claude.ai artifact "Caliber: Perpetual Training"), with claims matched to the shipped app. Source: site/www in the Caliber folder. -->
+<meta name="description" content="Caliber: Perpetual Training. Import your spreadsheet program, train at the gym, at home or both, and never run out of program. Six-week blocks that roll into the next. Free beta on iPhone and Apple Watch.">
+<meta name="keywords" content="strength training app, workout spreadsheet app, import workout program, periodization app, RIR training app, powerlifting peaking app, progressive overload app, workout tracker iPhone">
+<link rel="canonical" href="https://caliberperpetual.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://caliberperpetual.com/">
+<meta property="og:title" content="Caliber: Perpetual Training">
+<meta property="og:description" content="Bring your spreadsheet program. Caliber makes it adaptive and keeps building the next block when it ends.">
+<meta name="theme-color" content="#14110E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314110E'/%3E%3Cpath d='M24.5 8.2A11.5 11.5 0 1 0 24.5 23.8' fill='none' stroke='%23FF8A3D' stroke-width='5' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23F2EDE6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ECE8E3; --surface:#F7F4F0; --line:#D2CBC2; --text:#1A1612; --muted:#62594F;
+  --ember:#C9531C; --ember-hot:#E8662A; --steel:#7D858D; --cell-build:#B9B3AB; --cell-light:#DDD7CF;
+  --glow:rgba(232,102,42,.22);
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#14110E; --surface:#1D1814; --line:#352C24; --text:#F2EDE6; --muted:#A79E93;
+    --ember:#E8662A; --ember-hot:#FF8A3D; --steel:#8E959C; --cell-build:#4A4239; --cell-light:#2A231D;
+    --glow:rgba(255,122,48,.38);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14110E; --surface:#1D1814; --line:#352C24; --text:#F2EDE6; --muted:#A79E93;
+  --ember:#E8662A; --ember-hot:#FF8A3D; --steel:#8E959C; --cell-build:#4A4239; --cell-light:#2A231D;
+  --glow:rgba(255,122,48,.38);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-size:17px;line-height:1.55;font-variation-settings:"wdth" 100;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+img,svg{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ember-hot);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+.brand span{font-weight:700;font-variation-settings:"wdth" 125;font-size:19px;letter-spacing:.04em}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:46px;padding:0 22px;border-radius:10px;
+  border:0;background:var(--ember);color:#fff;font:inherit;font-weight:650;font-size:16px;text-decoration:none;cursor:pointer;
+  box-shadow:0 0 0 1px rgba(255,255,255,.06) inset,0 8px 28px -8px var(--glow)}
+.btn:hover{background:var(--ember-hot)}
+.btn.ghost{background:transparent;color:var(--text);box-shadow:0 0 0 1px var(--line) inset}
+.btn.ghost:hover{background:var(--surface)}
+.nav .btn{height:40px;padding:0 16px;font-size:15px}
+
+/* Hero */
+.hero{padding:72px 0 0}
+h1{font-size:clamp(44px,8.4vw,108px);line-height:.92;margin:0;font-weight:780;font-variation-settings:"wdth" 118;letter-spacing:-.02em;max-width:11ch}
+.lede{font-size:clamp(18px,2vw,21px);color:var(--muted);max-width:34em;margin:28px 0 32px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero-cta small{color:var(--muted);font-size:15px;flex-basis:100%}
+
+/* Perpetual track (the one memorable thing) */
+.track{position:relative;margin:64px 0 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--surface);overflow:hidden;height:156px}
+.lane{position:absolute;top:28px;left:0;display:flex;gap:14px;will-change:transform}
+.block{flex:none;display:flex;flex-direction:column;gap:10px}
+.block b{font-weight:600;font-size:14px;color:var(--muted);font-variation-settings:"wdth" 100}
+.weeks{display:flex;gap:5px}
+.wk{width:30px;height:64px;border-radius:5px;background:var(--cell-build)}
+.wk.push{background:var(--ember);opacity:.9}
+.wk.light{background:var(--cell-light);box-shadow:0 0 0 1px var(--line) inset}
+.now{position:absolute;top:0;bottom:0;left:30%;width:2px;background:var(--ember-hot);
+  box-shadow:0 0 18px 4px var(--glow)}
+.now span{position:absolute;bottom:12px;left:10px;white-space:nowrap;font-size:14px;font-weight:600;color:var(--ember-hot)}
+.track-key{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:14px;padding:14px 0 0}
+.track-key i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px;vertical-align:-1px}
+
+/* Sections */
+section{padding:112px 0 0}
+h2{font-size:clamp(32px,4.6vw,54px);line-height:1;margin:0 0 20px;font-weight:740;font-variation-settings:"wdth" 112;letter-spacing:-.015em;max-width:16ch}
+h3{font-size:22px;line-height:1.2;margin:0 0 10px;font-weight:700;font-variation-settings:"wdth" 108}
+p{margin:0 0 14px}
+.sub{color:var(--muted);max-width:36em;font-size:18px}
+
+.pains{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px;border-top:1px solid var(--line)}
+.pains div{padding:24px 28px 0 0}
+.pains div+div{padding-left:28px;border-left:1px solid var(--line)}
+.pains p{color:var(--muted)}
+
+/* Feature rows */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:56px 0;border-bottom:1px solid var(--line)}
+.feature:first-of-type{border-top:1px solid var(--line);margin-top:44px}
+.feature p{color:var(--muted);max-width:30em}
+
+.demo{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;font-size:15px;min-width:0}
+.sheet{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.sheet th,.sheet td{border:1px solid var(--line);padding:7px 9px;text-align:left}
+.sheet th{color:var(--muted);font-weight:600}
+.flow{display:flex;justify-content:center;margin:14px 0;color:var(--ember-hot)}
+.setcard{border-radius:12px;padding:16px;background:var(--bg);border:1px solid var(--line)}
+.setcard .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.setcard .big{font-size:28px;font-weight:720;font-variation-settings:"wdth" 112;font-variant-numeric:tabular-nums}
+.setcard .muted{color:var(--muted)}
+.chip{display:inline-block;padding:3px 10px;border-radius:99px;background:var(--glow);color:var(--text);font-weight:600;font-size:14px}
+.ok{color:var(--ember-hot);font-weight:650}
+
+.target-line{position:relative;height:56px;margin:8px 0 6px}
+.target-line .bar{position:absolute;left:0;right:0;top:26px;height:4px;border-radius:2px;
+  background:linear-gradient(90deg,var(--cell-build),var(--ember))}
+.target-line .flag{position:absolute;right:0;top:6px;width:14px;height:44px;border-left:2px solid var(--ember-hot)}
+.target-line .flag::after{content:"";position:absolute;left:0;top:0;width:14px;height:12px;background:var(--ember-hot)}
+.target-labels{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:14px}
+
+/* Gym / home toggle */
+.seg{display:inline-flex;padding:4px;gap:4px;border-radius:12px;background:var(--bg);border:1px solid var(--line);margin-bottom:14px}
+.seg button{height:38px;padding:0 16px;border:0;border-radius:8px;background:transparent;color:var(--muted);font:inherit;font-weight:600;font-size:15px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ember);color:#fff}
+.today{list-style:none;margin:0;padding:0}
+.today li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 12px;border-bottom:1px solid var(--line);border-left:3px solid transparent}
+.today li:last-child{border-bottom:0}
+.today li.swap{border-left-color:var(--ember-hot)}
+.today small{display:block;color:var(--muted);font-size:13px}
+.today .sr{font-variant-numeric:tabular-nums;color:var(--muted);white-space:nowrap}
+.locnote{color:var(--muted);font-size:14px;margin:12px 2px 0}
+
+/* Steps */
+.steps{list-style:none;padding:0;margin:44px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.steps li{padding:20px 24px 0 0;border-top:2px solid var(--line);counter-increment:s}
+.steps li:last-child{border-top-color:var(--ember)}
+.steps li::before{content:counter(s);display:block;font-size:44px;font-weight:780;font-variation-settings:"wdth" 118;line-height:1;margin-bottom:12px;color:var(--steel)}
+.steps li:last-child::before{color:var(--ember-hot)}
+.steps p{color:var(--muted);font-size:16px}
+
+.extras{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 28px;margin-top:56px}
+.extras p{color:var(--muted);font-size:16px}
+
+/* Founder */
+.founder{border-left:3px solid var(--ember);padding:8px 0 8px 28px;max-width:40em;margin:8px 0 0}
+.founder p{font-size:clamp(20px,2.3vw,26px);line-height:1.4;font-weight:450}
+.founder cite{font-style:normal;color:var(--muted);font-size:16px}
+
+/* Pricing */
+.price{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:start;margin-top:40px;
+  background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:40px}
+.price ul{margin:0;padding-left:20px;color:var(--muted)}
+.price li{margin-bottom:8px}
+
+/* FAQ */
+.faq{margin-top:32px;border-top:1px solid var(--line);max-width:780px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 40px 20px 0;font-weight:650;font-size:18px;position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:16px;font-size:24px;color:var(--ember-hot);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding-bottom:20px;margin:0;max-width:40em}
+
+/* Final CTA + form */
+.final{padding:120px 0 96px}
+.final h2{max-width:12ch;font-size:clamp(40px,7vw,88px)}
+.beta{display:flex;flex-wrap:wrap;gap:14px 20px;align-items:center;margin-top:28px;padding:22px 24px;max-width:640px;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.beta p{margin:0;flex:1 1 260px;color:var(--muted);font-size:16px}
+.beta p strong{color:var(--text)}
+.or{color:var(--muted);font-size:15px;margin:32px 0 0}
+form{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px;max-width:560px}
+input[type=email]{flex:1 1 260px;min-width:0;height:50px;border-radius:10px;border:1px solid var(--line);background:var(--surface);
+  color:var(--text);font:inherit;font-size:16px;padding:0 16px}
+input[type=email]::placeholder{color:var(--muted)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+form .btn{height:50px}
+form .btn[disabled]{opacity:.6;cursor:default}
+.formnote{color:var(--muted);font-size:15px;margin-top:12px;min-height:1.5em}
+.formnote.done{color:var(--ember-hot);font-weight:600}
+.formnote a{color:var(--ember-hot)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+footer nav{display:flex;gap:20px}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--text)}
+
+@media (max-width:820px){
+  .hero{padding-top:48px}
+  section{padding-top:80px}
+  .pains,.extras{grid-template-columns:1fr}
+  .pains div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .pains div{padding:20px 0 6px}
+  .feature{grid-template-columns:1fr;gap:28px;padding:40px 0}
+  .steps{grid-template-columns:1fr 1fr;row-gap:28px}
+  .price{grid-template-columns:1fr;padding:28px;gap:24px}
+  .now{left:18%}
+}
+@media (max-width:480px){
+  .wrap{padding:0 16px}
+  .steps{grid-template-columns:1fr}
+  .wk{width:24px}
+  .nav .btn{padding:0 12px}
+  .demo{padding:16px}
+  .setcard .big{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Caliber: Perpetual Training home">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M24.5 8.2A11.5 11.5 0 1 0 24.5 23.8" fill="none" stroke="var(--ember-hot)" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="16" cy="16" r="3.4" fill="var(--text)"/>
+      </svg>
+      <span>CALIBER</span>
+    </a>
+    <a class="btn" href="#join">Try the beta</a>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <h1>There’s always a next block.</h1>
+      <p class="lede">Caliber runs the program you already trust, imported straight from your spreadsheet, at the gym, at home, or both. It adapts every set to you, and when the program ends, it builds the next six weeks from your new numbers.</p>
+      <div class="hero-cta">
+        <a class="btn" href="https://testflight.apple.com/join/PNBhgfvy" rel="noopener">Try the free beta</a>
+        <a class="btn ghost" href="#join">Get launch news</a>
+        <small>Free beta on iPhone and Apple Watch through TestFlight. Free trial at launch.</small>
+      </div>
+    </div>
+
+    <div class="track" aria-label="Six-week training blocks rolling continuously into the next block">
+      <div class="lane" id="lane"></div>
+      <div class="now"><span>This week</span></div>
+    </div>
+    <div class="wrap">
+      <div class="track-key" aria-hidden="true">
+        <span><i style="background:var(--cell-build)"></i>Volume weeks</span>
+        <span><i style="background:var(--ember)"></i>Heavy weeks</span>
+        <span><i style="background:var(--cell-light);box-shadow:0 0 0 1px var(--line) inset"></i>Lighter week</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="problem">
+    <div class="wrap">
+      <h2>Your spreadsheet was never built for the gym.</h2>
+      <p class="sub">Good programs live in spreadsheets. Spreadsheets are miserable to use between sets.</p>
+      <div class="pains">
+        <div><h3>Pinch, zoom, scroll</h3><p>Finding today’s sets on a phone-sized grid with chalk on your hands.</p></div>
+        <div><h3>Math by hand</h3><p>Percentages, plate loading and next week’s jump, all worked out in your head mid-workout.</p></div>
+        <div><h3>Week 12, then nothing</h3><p>The program ends, you don’t know what to run next, and progress stalls while you decide.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>Keep your program. Lose the friction.</h2>
+
+      <div class="feature">
+        <div>
+          <h3>Bring the program you trust</h3>
+          <p>Upload your Excel or CSV program. Caliber reads the weeks, days, sets, reps and loads, and turns them into workouts with rest timers and plate math built in.</p>
+        </div>
+        <div class="demo" aria-label="A spreadsheet row becomes a workout set">
+          <div style="overflow-x:auto">
+          <table class="sheet">
+            <tr><th>Week 3, Day 1</th><th>Sets</th><th>Reps</th><th>Load</th></tr>
+            <tr><td>Bench press</td><td>4</td><td>5</td><td>82.5%</td></tr>
+            <tr><td>Weighted dip</td><td>3</td><td>8</td><td>RIR 2</td></tr>
+          </table>
+          </div>
+          <div class="flow" aria-hidden="true"><svg width="20" height="24" viewBox="0 0 20 24"><path d="M10 2v18M3 13l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="setcard">
+            <div class="row"><strong>Bench press</strong><span class="muted">Set 1 of 4</span></div>
+            <div class="row" style="margin-top:6px"><span class="big">235 lb × 5</span><span class="chip">45 + 45 + 5 a side</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Gym, home gym, or both</h3>
+          <p>Tell Caliber what you have at home, down to your heaviest dumbbells and the plates you own. On a home day it swaps in exercises that hit the same muscles with your equipment, and loads round to what you can actually build. Your progress carries straight through. One program, wherever you train.</p>
+        </div>
+        <div class="demo">
+          <div class="seg" role="group" aria-label="Where are you training today?">
+            <button type="button" aria-pressed="true" data-loc="gym">Gym</button>
+            <button type="button" aria-pressed="false" data-loc="home">Home gym</button>
+          </div>
+          <ul class="today" id="today" aria-live="polite"></ul>
+          <p class="locnote" id="locnote"></p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Loads that match the day you’re having</h3>
+          <p>Log how many reps you had left in the tank. Slept badly and the bar moved slow? Caliber eases the next set. Moving fast? It pushes you.</p>
+        </div>
+        <div class="demo">
+          <div class="setcard">
+            <div class="row"><strong>Squat, top set</strong><span class="muted">Target RIR 2</span></div>
+            <div class="row" style="margin-top:6px"><span class="big">315 lb × 5</span><span class="muted">Logged: RIR 4</span></div>
+          </div>
+          <p style="margin:14px 2px 0"><span class="ok">Next set: 325 lb.</span> <span class="muted">That felt easier than planned, so the load goes up.</span></p>
+        </div>
+      </div>
+
+      <div class="feature">
+        <div>
+          <h3>Peak on the day that matters</h3>
+          <p>Pick a date: a meet, a wedding, a trip. Caliber plans backward from it. Meets end with a peak so you’re strongest on the platform. Events end with a lighter week so you arrive fresh.</p>
+        </div>
+        <div class="demo">
+          <div class="target-line" aria-hidden="true"><div class="bar"></div><div class="flag"></div></div>
+          <div class="target-labels"><span>This week</span><span>Spring meet, 11 weeks out</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="perpetual">
+    <div class="wrap">
+      <h2>How the perpetual program works</h2>
+      <p class="sub">No finish line, no program hopping. Each block is built from what the last one taught.</p>
+      <ol class="steps">
+        <li><h3>Build</h3><p>The block opens with volume weeks to add work capacity and muscle.</p></li>
+        <li><h3>Push</h3><p>Volume comes down and loads go up as you get closer to your limits.</p></li>
+        <li><h3>Recover</h3><p>A lighter week lets fatigue clear so the strength you built shows up.</p></li>
+        <li><h3>Repeat, stronger</h3><p>Your next block starts automatically from your new numbers.</p></li>
+      </ol>
+
+      <div class="extras">
+        <div><h3>Train from your wrist</h3><p>Log every set on Apple Watch with the rest timer, effort and live heart rate, and save the workout to Apple Health.</p></div>
+        <div><h3>Cardio that coaches you</h3><p>Zone 2 and interval sessions with a cue at every change, a Lock Screen countdown, and heart-rate zones from your Watch.</p></div>
+        <div><h3>See what you’re training</h3><p>Every exercise has a drawing with the worked muscles highlighted, plus form cues and a video demo a tap away.</p></div>
+        <div><h3>Food without the busywork</h3><p>Describe a meal or snap a photo and Caliber estimates it, so tracking calories and protein takes seconds.</p></div>
+        <div><h3>Widgets and Lock Screen</h3><p>Today’s session and your week on the Home Screen, and the rest timer on your Lock Screen.</p></div>
+        <div><h3>Your data stays yours</h3><p>Back up, restore and export your full training history any time. No ads, no trackers.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="founder">
+    <div class="wrap">
+      <h2>Built by a lifter</h2>
+      <blockquote class="founder">
+        <p>“I ran my program out of a spreadsheet for years. I built Caliber because I wanted the program I trusted, with a coach’s judgment on every set, and an answer to ‘what now?’ when it ended.”</p>
+        <cite>Andy, founder</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <h2>One plan. Try it first.</h2>
+      <div class="price">
+        <div>
+          <h3>Caliber</h3>
+          <p class="sub" style="font-size:17px">Free during the beta. At launch, start with a free trial, then one subscription, with pricing announced before launch.</p>
+          <a class="btn" href="#join" style="margin-top:8px">Try the beta</a>
+        </div>
+        <ul>
+          <li>Spreadsheet import</li>
+          <li>Gym and home gym setups</li>
+          <li>Perpetual and target-date programs</li>
+          <li>Set-by-set load adjustments</li>
+          <li>Rest timers and plate math</li>
+          <li>Apple Watch app and Apple Health</li>
+          <li>Cardio with heart-rate zones</li>
+          <li>Progress, body weight, food and check-ins</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2>Questions</h2>
+      <div class="faq">
+        <details><summary>How do I try the beta?</summary><p>Open the beta link on your iPhone. It installs Apple’s free TestFlight app, then Caliber. The beta is free, and your training carries over to the App Store version at launch.</p></details>
+        <details><summary>Which spreadsheets can I import?</summary><p>Excel and CSV files, including programs laid out week by week, which is how most popular programs are built. If a column doesn’t read cleanly, you can fix it before your first workout.</p></details>
+        <details><summary>Do I need my own program?</summary><p>No. Tell Caliber how many days you train and what you’re training for, and it builds a perpetual program for you.</p></details>
+        <details><summary>Can I train at the gym and at home on the same program?</summary><p>Yes. Tell Caliber what equipment you have at home. Pick gym or home when you train, or set a default for certain sessions or weekdays, and Caliber swaps any exercise you can’t do there for one that trains the same muscles. Your progression keeps going either way.</p></details>
+        <details><summary>What does “perpetual” mean?</summary><p>Your training runs in six-week blocks. When one ends, the next one starts automatically from your updated numbers, so you never finish a program and wonder what to do next.</p></details>
+        <details><summary>Do I need an Apple Watch?</summary><p>No. Everything works on iPhone. With a Watch you can log sets from your wrist and see live heart rate during cardio.</p></details>
+        <details><summary>Is there an Android version?</summary><p>Caliber launches on iPhone first. Android is planned.</p></details>
+        <details><summary>How much will it cost?</summary><p>The beta is free. At launch there’s a free trial, then a single subscription. People on the launch list hear the price first.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final" id="join">
+    <div class="wrap">
+      <h2>Your next block starts here.</h2>
+      <div class="beta">
+        <p><strong>Try it now.</strong> The free beta runs on iPhone and Apple Watch through Apple’s TestFlight app.</p>
+        <a class="btn" href="https://testflight.apple.com/join/PNBhgfvy" rel="noopener">Join the beta</a>
+      </div>
+      <p class="or">Not on iPhone yet, or want the launch date? Get one email when Caliber launches. No spam.</p>
+      <form id="waitlist" novalidate>
+        <label for="email" style="position:absolute;left:-9999px">Email address</label>
+        <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <div class="hp" aria-hidden="true"><label for="website">Leave this empty</label><input id="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <button class="btn" type="submit">Get launch news</button>
+      </form>
+      <p class="formnote" id="formnote" role="status"></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Caliber: Perpetual Training</span>
+    <nav aria-label="Footer">
+      <a href="https://legal.caliberperpetual.com/privacy">Privacy</a>
+      <a href="mailto:amayer@caliberperpetual.com">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+// Launch list: saved to the waitlist table in Caliber's Supabase project (supabase/migrations/20261028000000_waitlist.sql).
+// The publishable key can only add an address; it can't read the list.
+const WAITLIST = { url:"https://xbapjmnnsnkaxelldkpl.supabase.co/rest/v1/waitlist", key:"sb_publishable_FBcN60xU0nqNnNcfLijWGA_VDTeQEMU" };
+
+(function(){
+  const form = document.getElementById('waitlist');
+  const note = document.getElementById('formnote');
+  const email = document.getElementById('email');
+  const trap = document.getElementById('website');
+  const button = form.querySelector('button');
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    note.className = 'formnote';
+    const value = email.value.trim().toLowerCase();
+    if(!value || !email.checkValidity()){ note.textContent = 'Enter a valid email address.'; email.focus(); return; }
+    if(!trap.value){
+      button.disabled = true;
+      try{
+        const r = await fetch(WAITLIST.url, { method:'POST',
+          headers:{ apikey:WAITLIST.key, Authorization:'Bearer ' + WAITLIST.key, 'Content-Type':'application/json', Prefer:'return=minimal' },
+          body:JSON.stringify({ email:value, source:'site' }) });
+        if(!r.ok && r.status !== 409) throw new Error(r.status);   // 409: already on the list
+      }catch(err){
+        button.disabled = false;
+        note.textContent = 'That didn’t go through. Check your connection and try again.';
+        return;
+      }
+    }
+    form.style.display = 'none';
+    note.className = 'formnote done';
+    note.innerHTML = 'You’re on the list. We’ll email you when Caliber launches. On iPhone? <a href="https://testflight.apple.com/join/PNBhgfvy" rel="noopener">Try the beta now</a>.';
+  });
+})();
+
+// Gym / home toggle: same day, swapped to fit the equipment
+(function(){
+  const day = {
+    gym:[['Barbell back squat','4 × 5'],['Leg press','3 × 10'],['Lat pulldown','3 × 10'],['Seated cable row','3 × 12']],
+    home:[['Barbell back squat','4 × 5'],['Bulgarian split squat','3 × 10','leg press'],['Pull-up','3 × 8','lat pulldown'],['Chest-supported dumbbell row','3 × 12','seated cable row']]
+  };
+  const notes = {
+    gym:'Today’s workout, exactly as your program wrote it.',
+    home:'3 swaps for a rack, barbell, bench, dumbbells and a pull-up bar. Same muscles, same progression.'
+  };
+  const list = document.getElementById('today');
+  const note = document.getElementById('locnote');
+  const btns = document.querySelectorAll('.seg button');
+  function render(loc){
+    list.innerHTML = day[loc].map(([n, s, from]) =>
+      '<li class="' + (from ? 'swap' : '') + '"><span>' + n + (from ? '<small>In place of ' + from + '</small>' : '') + '</span><span class="sr">' + s + '</span></li>').join('');
+    note.textContent = notes[loc];
+    btns.forEach(b => b.setAttribute('aria-pressed', b.dataset.loc === loc));
+  }
+  btns.forEach(b => b.addEventListener('click', () => render(b.dataset.loc)));
+  render('gym');
+})();
+
+// Perpetual track: blocks keep arriving, numbered forever
+(function(){
+  const lane = document.getElementById('lane');
+  const phases = ['build','build','build','push','push','light'];
+  let n = 1;
+  function makeBlock(){
+    const b = document.createElement('div');
+    b.className = 'block';
+    b.innerHTML = '<b>Block ' + n++ + '</b><div class="weeks">' +
+      phases.map(p => '<div class="wk ' + (p === 'build' ? '' : p) + '"></div>').join('') + '</div>';
+    return b;
+  }
+  for(let i = 0; i < 8; i++) lane.appendChild(makeBlock());
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(reduce.matches) return;
+  let offset = 0, last = performance.now();
+  const speed = 22;
+  function tick(t){
+    const dt = Math.min((t - last) / 1000, .1); last = t;
+    offset += speed * dt;
+    const first = lane.firstElementChild;
+    const w = first.getBoundingClientRect().width + 14;
+    if(offset >= w){ lane.removeChild(first); lane.appendChild(makeBlock()); offset -= w; }
+    lane.style.transform = 'translateX(' + (-offset) + 'px)';
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
