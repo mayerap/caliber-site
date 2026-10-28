@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plate Calculator for the Plates You Own (lb and kg)</title>
+<meta name="description" content="Free barbell plate calculator for home gyms. Enter the plates you own and get the closest loadable weight, plates per side, and the best pair to buy next.">
+<link rel="canonical" href="https://caliberperpetual.com/tools/plate-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Plate Calculator for the Plates You Own (lb and kg)">
+<meta property="og:description" content="Free barbell plate calculator for home gyms. Enter the plates you own and get the closest loadable weight, plates per side, and the best pair to buy next.">
+<meta property="og:url" content="https://caliberperpetual.com/tools/plate-calculator/">
+<meta property="og:site_name" content="Caliber: Perpetual Training">
+<meta property="og:image" content="https://caliberperpetual.com/assets/img/app-today.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14110E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M24.14 8.6A11 11 0 1 0 24.14 23.4' fill='none' stroke='%23F2EDE6' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.6' fill='%23FF8A3D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Caliber plate calculator", "url": "https://caliberperpetual.com/tools/plate-calculator/", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Free barbell plate calculator for home gyms. Enter the plates you own and get the closest loadable weight, plates per side, and the best pair to buy next."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Why can’t I just load the biggest plates first?", "acceptedAnswer": {"@type": "Answer", "text": "With a full gym set, biggest-first works. With a limited home set it can miss. If you own one pair of 45s and two pairs of 25s, biggest-first loading for 145 lb puts a 45 on each side and comes up 10 lb short, while two 25s per side make it exactly. This calculator checks every combination you own."}}, {"@type": "Question", "name": "Does the calculator include collars?", "acceptedAnswer": {"@type": "Answer", "text": "No. Spring collars weigh almost nothing. Competition collars weigh 2.5 kg each; if you use them, add their weight to the bar weight."}}, {"@type": "Question", "name": "What does “best next pair to buy” mean?", "acceptedAnswer": {"@type": "Answer", "text": "For each common plate size, the calculator adds one more pair to your set and counts how many new loads that unlocks, up to 100 lb (or 50 kg) beyond your current maximum. The pair that unlocks the most is suggested."}}, {"@type": "Question", "name": "Is my plate set saved?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, on this device only, in your browser’s storage. Nothing is sent anywhere."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://caliberperpetual.com/"}, {"@type": "ListItem", "position": 2, "name": "Plate calculator", "item": "https://caliberperpetual.com/tools/plate-calculator/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="/" aria-label="Caliber: Perpetual Training home"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M24.14 8.6A11 11 0 1 0 24.14 23.4" fill="none" stroke="var(--text)" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="var(--ember-hot)"/></svg><span>CALIBER</span></a>
+  <nav class="nav-links" aria-label="Main">
+    <a class="hide-xs" href="/guides/">Guides</a>
+    <a class="hide-sm" href="/tools/plate-calculator/">Plate calculator</a>
+    <a class="btn" href="/#join">Join the waitlist</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="article" style="max-width:1000px">
+<p class="crumbs"><a href="/">Home</a> / Tools / Plate calculator</p>
+<h1>Plate calculator for the plates you actually own</h1>
+<p class="answer">Enter your bar and the pairs of plates in your gym. The calculator finds the plates per side for your target, or the closest weights you can build if your set can’t make it exactly.</p>
+
+<section class="calc" aria-labelledby="calc-h">
+  <h2 id="calc-h" class="skip">Calculator</h2>
+  <div class="calc-grid">
+    <div class="panel">
+      <div class="row2">
+        <fieldset class="seg"><legend>Units</legend>
+          <label><input type="radio" name="units" value="lb" checked> lb</label>
+          <label><input type="radio" name="units" value="kg"> kg</label>
+        </fieldset>
+        <label class="field">Bar weight
+          <select id="bar"></select>
+        </label>
+      </div>
+      <p class="lab">Pairs of plates you own</p>
+      <div id="plates" class="plates"></div>
+      <label class="field target">Target weight
+        <input id="target" type="number" inputmode="decimal" min="0" step="0.5" value="225">
+      </label>
+    </div>
+    <div class="panel out" aria-live="polite">
+      <p class="lab">Load per side</p>
+      <div id="side" class="side"></div>
+      <div id="viz" class="viz" aria-hidden="true"></div>
+      <p id="result" class="result"></p>
+      <div class="near"><div><span class="lab">Closest at or below</span><b id="below">—</b></div><div><span class="lab">Closest at or above</span><b id="above">—</b></div></div>
+      <p id="maxload" class="muted small"></p>
+      <p id="buy" class="buy"></p>
+    </div>
+  </div>
+</section>
+<style>
+.calc{margin:26px 0 8px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.row2{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end}
+.seg{border:0;margin:0;padding:0;display:flex;gap:6px}
+.seg legend{font-size:14px;color:var(--muted);margin-bottom:6px;padding:0}
+.seg label{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:10px;padding:8px 14px;cursor:pointer;font-weight:600;font-size:16px}
+.seg label:has(input:checked){background:var(--ember);border-color:var(--ember);color:#fff}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label:focus-within{outline:2px solid var(--ember-hot);outline-offset:2px}
+.field{display:flex;flex-direction:column;font-size:14px;color:var(--muted);gap:6px;flex:1;min-width:140px}
+.field select,.field input{height:46px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit;font-size:17px;padding:0 12px}
+.target{margin-top:16px}
+.target input{font-size:22px;font-weight:700}
+.lab{font-size:14px;color:var(--muted);margin:16px 0 8px;display:block}
+.plates{display:grid;gap:8px}
+.prow{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:6px 8px 6px 14px}
+.prow span{font-weight:650;font-variant-numeric:tabular-nums}
+.step{display:flex;align-items:center;gap:8px}
+.step button{width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:inherit;font-size:20px;cursor:pointer}
+.step button:disabled{opacity:.4;cursor:default}
+.step output{min-width:66px;text-align:center;font-variant-numeric:tabular-nums}
+.out .side{font-size:clamp(24px,3.4vw,32px);font-weight:760;line-height:1.2;font-variation-settings:"wdth" 110;min-height:1.2em}
+.viz{display:flex;align-items:center;height:110px;margin:12px 0;gap:3px}
+.viz .bar{height:12px;width:56px;border-radius:3px;background:var(--steel)}
+.viz .col{width:10px;height:26px;border-radius:2px;background:var(--steel)}
+.viz .pl{width:16px;border-radius:4px}
+.result{font-size:16px;margin:4px 0 12px}
+.near{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+.near div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.near .lab{margin:0 0 2px}
+.near b{font-size:20px;font-variant-numeric:tabular-nums}
+.small{font-size:15px}
+.buy{margin:8px 0 0;font-size:16px;border-top:1px solid var(--line);padding-top:12px}
+@media (max-width:760px){.calc-grid{grid-template-columns:1fr}}
+</style>
+<script>
+(function(){
+  const SETS = { lb:[45,35,25,10,5,2.5], kg:[25,20,15,10,5,2.5,1.25] };
+  const BARS = { lb:[45,35,33,15], kg:[20,15,10] };
+  const DEF = { lb:{ bar:45, pairs:{45:2,35:0,25:2,10:2,5:2,2.5:1} }, kg:{ bar:20, pairs:{25:0,20:2,15:0,10:2,5:2,2.5:2,1.25:0} } };
+  const COLORS = { lb:{45:'#2F6FDE',35:'#E3B23C',25:'#2E9E5B',10:'#D9D4CC',5:'#5A524A',2.5:'#5A524A'},
+                   kg:{25:'#D43A2F',20:'#2F6FDE',15:'#E3B23C',10:'#2E9E5B',5:'#D9D4CC',2.5:'#5A524A',1.25:'#5A524A'} };
+  const H = { 45:100,35:96,25:84,10:62,5:50,2.5:40, 20:100,15:96,1.25:34 };
+  let units = 'lb', state = load();
+  function load(){ try{ const s = JSON.parse(localStorage.getItem('caliber-plates') || 'null'); if(s && s.lb && s.kg) return s; }catch(e){} return JSON.parse(JSON.stringify(DEF)); }
+  function save(){ try{ localStorage.setItem('caliber-plates', JSON.stringify(state)); }catch(e){} }
+  const $ = id => document.getElementById(id);
+  const Q = 4; // work in quarter units so 1.25 and 2.5 stay exact
+  // Every per-side load you can build, with the plates that build it (fewest plates wins ties)
+  function sums(pairs){
+    const best = new Map([[0, []]]);
+    SETS[units].forEach(w => {
+      const n = pairs[w] || 0; if(!n) return;
+      const entries = [...best.entries()];
+      for(const [s, list] of entries){
+        for(let k = 1; k <= n; k++){
+          const ns = s + Math.round(w * Q) * k, nl = list.concat(Array(k).fill(w));
+          if(!best.has(ns) || best.get(ns).length > nl.length) best.set(ns, nl);
+        }
+      }
+    });
+    return best;
+  }
+  const fmt = v => (Math.round(v * 100) / 100).toString();
+  function render(){
+    const st = state[units], bar = st.bar;
+    $('bar').innerHTML = BARS[units].map(b => `<option value="${b}" ${b === bar ? 'selected' : ''}>${b} ${units}</option>`).join('');
+    $('plates').innerHTML = SETS[units].map(w => { const n = st.pairs[w] || 0; return `<div class="prow"><span>${w} ${units}</span>
+      <div class="step"><button type="button" data-w="${w}" data-d="-1" aria-label="One fewer pair of ${w} ${units} plates" ${n ? '' : 'disabled'}>−</button>
+      <output aria-label="${w} ${units} pairs">${n} ${n === 1 ? 'pair' : 'pairs'}</output>
+      <button type="button" data-w="${w}" data-d="1" aria-label="One more pair of ${w} ${units} plates">+</button></div></div>`; }).join('');
+    calc();
+  }
+  function calc(){
+    const st = state[units], bar = st.bar, target = parseFloat($('target').value);
+    const all = sums(st.pairs), keys = [...all.keys()].sort((a, b) => a - b);
+    const maxSide = keys[keys.length - 1] / Q, maxLoad = bar + 2 * maxSide;
+    $('maxload').textContent = `Heaviest you can load: ${fmt(maxLoad)} ${units}. ${keys.length} different loads possible.`;
+    if(!(target > 0)){ $('side').textContent = ''; $('result').textContent = 'Enter a target weight.'; $('below').textContent = $('above').textContent = '—'; $('viz').innerHTML = ''; buy(all, bar); return; }
+    if(target < bar){ $('side').textContent = 'Lighter than the bar'; $('result').textContent = `The bar alone is ${fmt(bar)} ${units}.`; $('below').textContent = '—'; $('above').textContent = `${fmt(bar)} ${units}`; $('viz').innerHTML = ''; buy(all, bar); return; }
+    const want = Math.round((target - bar) / 2 * Q);
+    let lo = null, hi = null;
+    for(const k of keys){ if(k <= want) lo = k; if(k >= want && hi == null) hi = k; }
+    const exact = lo === want, list = all.get(lo) || [];
+    $('side').textContent = list.length ? list.join(' + ') : 'Empty bar';
+    $('result').textContent = exact ? `That loads exactly ${fmt(target)} ${units}.` : `Your plates can’t make ${fmt(target)} ${units}. This loads ${fmt(bar + 2 * lo / Q)} ${units}, the closest without going over.`;
+    $('below').textContent = `${fmt(bar + 2 * lo / Q)} ${units}`;
+    $('above').textContent = hi == null ? 'Over your max' : `${fmt(bar + 2 * hi / Q)} ${units}`;
+    $('viz').innerHTML = '<span class="bar"></span><span class="col"></span>' + list.map(w => `<span class="pl" style="height:${H[w] || 40}px;background:${COLORS[units][w]}" title="${w}"></span>`).join('');
+    buy(all, bar);
+  }
+  // Which extra pair unlocks the most new loads (up to 100 lb or 50 kg past today's max)?
+  function buy(cur, bar){
+    const st = state[units], have = new Set(cur.keys()), curMax = Math.max(...have), cap = curMax + Math.round((units === 'lb' ? 50 : 25) * Q);
+    let best = null;
+    SETS[units].forEach(w => {
+      const p = { ...st.pairs, [w]:(st.pairs[w] || 0) + 1 };
+      let gain = 0; for(const k of sums(p).keys()) if(!have.has(k) && k <= cap) gain++;
+      if(!best || gain > best.gain) best = { w, gain };
+    });
+    $('buy').innerHTML = best && best.gain ? `<b>Best next pair to buy:</b> ${best.w} ${units}. It adds ${best.gain} new ${best.gain === 1 ? 'load' : 'loads'} you can build.` : '';
+  }
+  document.querySelectorAll('input[name=units]').forEach(r => r.addEventListener('change', e => { units = e.target.value; $('target').value = units === 'lb' ? 225 : 100; render(); }));
+  $('bar').addEventListener('change', e => { state[units].bar = parseFloat(e.target.value); save(); calc(); });
+  $('plates').addEventListener('click', e => { const b = e.target.closest('button'); if(!b) return;
+    const w = parseFloat(b.dataset.w), n = (state[units].pairs[w] || 0) + +b.dataset.d; state[units].pairs[w] = Math.max(0, Math.min(10, n)); save(); render();
+    const again = document.querySelector(`button[data-w="${w}"][data-d="${b.dataset.d}"]`); if(again && !again.disabled) again.focus(); });
+  $('target').addEventListener('input', calc);
+  render();
+})();
+</script>
+
+<h2 id="how">How it works</h2>
+<p>Most plate calculators assume a full commercial gym and load the biggest plates first. That works when every plate size is on the rack. Home and garage sets are usually incomplete, and biggest-first loading can miss weights you can actually build.</p>
+<p>This calculator lists every load your plates can make, then picks the one closest to your target, using the fewest plates. It also shows the closest weight above your target, and which pair of plates would add the most new loads if you buy one.</p>
+<h3>An example</h3>
+<p>Say you own a 45 lb bar, one pair of 45s and two pairs of 25s. For 145 lb you need 50 lb per side. Biggest-first loading grabs a 45, has nothing small enough to finish, and leaves you at 135. Two 25s per side make 145 exactly. The calculator finds combinations like that for you.</p>
+<h2 id="tips">Tips for a home plate set</h2>
+<ul>
+  <li><b>Small plates matter most for progress.</b> A pair of 2.5 lb plates gives you 5 lb jumps. Without them, every jump is at least 10 lb, which stalls presses quickly.</li>
+  <li><b>Pairs of 10s are flexible.</b> Two pairs of 10s and one pair of 5s cover every 10 lb step from the bar to 50 lb per side.</li>
+  <li><b>When you can’t load a weight,</b> round down and add a rep, rather than rounding up and missing reps.</li>
+</ul>
+<div class="incaliber" style="margin-top:28px">
+  <div class="phone"><img src="/assets/img/app-logger.jpg" alt="Caliber logger showing plate loading for the current set" width="600" height="1301" loading="lazy"></div>
+  <div><h2>Plate math on every set, in Caliber</h2>
+  <p>Caliber shows the plates for every set as you train. Save the plates you own at home and Caliber uses only those while you train there, rounding each load to what you can build and adding reps to keep the effort the same.</p>
+  <div class="cta"><a class="btn" href="/#join">Join the waitlist</a><a class="btn ghost" href="/guides/gym-and-home-workout-program/">Training at the gym and home</a></div></div>
+</div>
+<h2 id="faq">Frequently asked questions</h2>
+<div class="faq"><details><summary>Why can’t I just load the biggest plates first?</summary><p>With a full gym set, biggest-first works. With a limited home set it can miss. If you own one pair of 45s and two pairs of 25s, biggest-first loading for 145 lb puts a 45 on each side and comes up 10 lb short, while two 25s per side make it exactly. This calculator checks every combination you own.</p></details><details><summary>Does the calculator include collars?</summary><p>No. Spring collars weigh almost nothing. Competition collars weigh 2.5 kg each; if you use them, add their weight to the bar weight.</p></details><details><summary>What does “best next pair to buy” mean?</summary><p>For each common plate size, the calculator adds one more pair to your set and counts how many new loads that unlocks, up to 100 lb (or 50 kg) beyond your current maximum. The pair that unlocks the most is suggested.</p></details><details><summary>Is my plate set saved?</summary><p>Yes, on this device only, in your browser’s storage. Nothing is sent anywhere.</p></details></div>
+<h2>Keep reading</h2><div class="cards"><a class="card" href="/guides/gym-and-home-workout-program/"><small>Programming</small><b>One program for the gym and home</b><span>Swaps by movement pattern and effort-matched loads.</span></a><a class="card" href="/guides/rir-vs-rpe/"><small>Training concepts</small><b>RIR vs RPE</b><span>What reps in reserve and RPE mean, with a conversion chart.</span></a><a class="card" href="/guides/what-to-run-after-your-program/"><small>Programming</small><b>What to run after your program ends</b><span>Why lifters stall between programs, and how to plan the next block.</span></a></div>
+</article>
+</main>
+<footer><div class="wrap">
+  <span>© 2026 Caliber: Perpetual Training</span>
+  <span><a href="/guides/">Guides</a> · <a href="/tools/plate-calculator/">Plate calculator</a> · <a href="/tools/warm-up-calculator/">Warm-up calculator</a> · <a href="/tools/rpe-calculator/">RPE calculator</a> · <a href="/compare/">Compare</a> · <a href="/#pricing">Pricing</a> · <a href="https://legal.caliberperpetual.com/privacy">Privacy</a> · <a href="mailto:amayer@caliberperpetual.com">Contact</a></span>
+</div></footer>
+</body>
+</html>

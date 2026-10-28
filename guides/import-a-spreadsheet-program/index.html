@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How to Import a Spreadsheet Program into Caliber</title>
+<meta name="description" content="The exact columns Caliber reads from Excel and CSV programs, rules for clean imports, how to bring programs you bought, and a template.">
+<link rel="canonical" href="https://caliberperpetual.com/guides/import-a-spreadsheet-program/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Import a Spreadsheet Program into Caliber">
+<meta property="og:description" content="The exact columns Caliber reads from Excel and CSV programs, rules for clean imports, how to bring programs you bought, and a template.">
+<meta property="og:url" content="https://caliberperpetual.com/guides/import-a-spreadsheet-program/">
+<meta property="og:site_name" content="Caliber: Perpetual Training">
+<meta property="og:image" content="https://caliberperpetual.com/assets/img/app-today.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14110E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M24.14 8.6A11 11 0 1 0 24.14 23.4' fill='none' stroke='%23F2EDE6' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.6' fill='%23FF8A3D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "How to Import a Spreadsheet Program into Caliber", "description": "The exact columns Caliber reads from Excel and CSV programs, rules for clean imports, how to bring programs you bought, and a template.", "datePublished": "2026-10-28", "dateModified": "2026-10-28", "mainEntityOfPage": "https://caliberperpetual.com/guides/import-a-spreadsheet-program/", "image": "https://caliberperpetual.com/assets/img/app-today.jpg", "author": {"@type": "Organization", "name": "Caliber Team"}, "publisher": {"@type": "Organization", "name": "Caliber: Perpetual Training", "url": "https://caliberperpetual.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I import a program I bought?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. If you have the spreadsheet, export the program tab to Excel or CSV and import it. Caliber only reads your copy; nothing is shared."}}, {"@type": "Question", "name": "What if my spreadsheet doesn’t use these column names?", "acceptedAnswer": {"@type": "Answer", "text": "Caliber recognizes common names for each column, such as Wk, Session, Load or %1RM. If a column still isn’t read, rename its header to one of the names below."}}, {"@type": "Question", "name": "How do I write a set range like 6 to 8 reps?", "acceptedAnswer": {"@type": "Answer", "text": "Type it as 6-8. Caliber reads text, so Excel can’t turn it into a date."}}, {"@type": "Question", "name": "How do I mark an AMRAP set?", "acceptedAnswer": {"@type": "Answer", "text": "Put the number of reps in Reps (for example 5) and write AMRAP in the Technique column. Caliber shows it as a last-set note."}}, {"@type": "Question", "name": "How do back-off sets work?", "acceptedAnswer": {"@type": "Answer", "text": "Add another row for the same exercise right below the first, with its own sets and reps. Caliber keeps them together as one exercise with two set groups."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://caliberperpetual.com/"}, {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://caliberperpetual.com/guides/"}, {"@type": "ListItem", "position": 3, "name": "Import a program", "item": "https://caliberperpetual.com/guides/import-a-spreadsheet-program/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="/" aria-label="Caliber: Perpetual Training home"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M24.14 8.6A11 11 0 1 0 24.14 23.4" fill="none" stroke="var(--text)" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="var(--ember-hot)"/></svg><span>CALIBER</span></a>
+  <nav class="nav-links" aria-label="Main">
+    <a class="hide-xs" href="/guides/">Guides</a>
+    <a class="hide-sm" href="/tools/plate-calculator/">Plate calculator</a>
+    <a class="btn" href="/#join">Join the waitlist</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="article">
+<p class="crumbs"><a href="/">Home</a> / <a href="/guides/">Guides</a> / Import a program</p>
+<h1>How to import any spreadsheet program into Caliber</h1>
+<p class="answer">Export your program as Excel or CSV with one exercise per row and Exercise, Sets and Reps columns, then import it. Caliber also reads week, day, RPE or RIR, percentages, weights, rest, technique and notes.</p>
+<p class="meta">By Caliber Team · Updated October 28, 2026</p>
+<table class="facts"><caption class="skip">Quick facts</caption><tr><th scope="row">File types</th><td>.xlsx, .xls, .xlsm, .csv</td></tr><tr><th scope="row">Required columns</th><td>Exercise, Sets, Reps</td></tr><tr><th scope="row">Optional columns</th><td>Week, Day, RPE/RIR, %1RM, Weight, Rest, Technique, Notes, Substitution</td></tr><tr><th scope="row">Preview</th><td>Yes, before anything is saved</td></tr></table>
+<nav class="toc" aria-label="On this page"><p>On this page</p><ol><li><a href="#how">How it works</a></li><li><a href="#columns">The columns</a></li><li><a href="#rules">Rules for clean imports</a></li><li><a href="#paid">Programs you bought</a></li><li><a href="#fix">Troubleshooting</a></li><li><a href="#faq">FAQ</a></li></ol></nav>
+
+<h2 id="how">How importing works</h2>
+<p>Caliber reads Excel files (.xlsx, .xls, .xlsm) and CSV files. Each row is one exercise on one day. Caliber finds the header row, reads each column by its name, and builds your weeks and days. You see a preview before anything is saved, with a count of weeks, days and exercises.</p>
+
+<h2 id="columns">The columns Caliber reads</h2>
+<div class="table-wrap"><table class="data">
+<thead><tr><th scope="col">Column</th><th scope="col">Also recognized as</th><th scope="col">Example</th></tr></thead>
+<tbody>
+<tr><td>Exercise <b>(required)</b></td><td>Movement, Lift, Exercise name</td><td>Back squat</td></tr>
+<tr><td>Sets <b>(required)</b></td><td>Working sets, Number of sets</td><td>4</td></tr>
+<tr><td>Reps <b>(required)</b></td><td>Rep range, Target reps, Repetitions</td><td>6-8</td></tr>
+<tr><td>Week</td><td>Wk, Week number</td><td>1</td></tr>
+<tr><td>Day</td><td>Session, Workout, Day name</td><td>Upper A</td></tr>
+<tr><td>RPE or RIR</td><td>Any column with RIR in its name</td><td>8</td></tr>
+<tr><td>%1RM</td><td>Percent, Percentage, Intensity, %</td><td>75%</td></tr>
+<tr><td>Weight</td><td>Load, Weight (lb), Weight (kg), lbs, kg</td><td>185</td></tr>
+<tr><td>Rest</td><td>Rest time, Rest (sec), Rest (min)</td><td>2 min</td></tr>
+<tr><td>Technique</td><td>Intensity technique, Last-set intensity technique</td><td>AMRAP</td></tr>
+<tr><td>Notes</td><td>Note, Cues, Comments</td><td>Pause at the bottom</td></tr>
+<tr><td>Substitution</td><td>Alternate, Swap (any column with these words)</td><td>Goblet squat</td></tr>
+<tr><td>Warm-up sets</td><td>Warmups, Warm-up</td><td>2-3</td></tr>
+</tbody></table></div>
+<p>Only Exercise, Sets and Reps are required. Rows without sets or reps, like “Rest day” notes, are skipped, and the preview tells you how many.</p>
+
+<h2 id="rules">Rules that make imports clean</h2>
+<ul>
+  <li><b>One exercise per row.</b> For back-off sets, add a second row for the same exercise right below the first.</li>
+  <li><b>Day names carry down.</b> Write the day name once; rows below it belong to that day until the next name.</li>
+  <li><b>Percentages need maxes.</b> If you use %1RM, add a tab named Maxes with Exercise and 1RM columns (an Excel file, since CSV has only one tab). Caliber turns each percentage into a weight from it.</li>
+  <li><b>RPE converts to RIR.</b> RPE 8 becomes 2 reps in reserve. Use whichever your program uses.</li>
+  <li><b>Supersets:</b> start names with a label like A1: and A2: to pair exercises.</li>
+  <li><b>Alternatives:</b> a Substitution column gives Caliber your program’s own swaps, which it uses first when you train at home.</li>
+</ul>
+
+<h2 id="paid">Programs you bought</h2>
+<p>Many popular programs are sold as spreadsheets by their coaches. You can import your own copy the same way: export the program tab as Excel or CSV and import it. If a column isn’t recognized, rename its header to a name from the table above. Your file stays yours; Caliber doesn’t share program content.</p>
+
+<h2 id="fix">If something doesn’t import</h2>
+<ol>
+  <li>Make sure there is exactly one header row above the exercises, with an Exercise column.</li>
+  <li>Check that Sets and Reps contain numbers, like 3 and 8-10.</li>
+  <li>Remove merged cells in the header row.</li>
+  <li>Split very complex sheets into one tab per block and import the tab you are about to run.</li>
+</ol>
+<div class="download"><div><b>Blank Caliber import template (CSV)</b><span class="muted" style="font-size:15px">Every column Caliber reads, with two example rows. Replace them with your program.</span></div><a class="btn" href="/downloads/caliber-import-template.csv" download>Download CSV</a></div>
+<h2 id="example">An example sheet</h2>
+<div class="table-wrap"><table class="data"><thead><tr><th scope="col">Week</th><th scope="col">Day</th><th scope="col">Exercise</th><th scope="col">Sets</th><th scope="col">Reps</th><th scope="col">RPE</th><th scope="col">Weight</th><th scope="col">Rest</th></tr></thead><tbody>
+<tr><td>1</td><td>Upper A</td><td>Bench press</td><td>3</td><td>6-8</td><td>8</td><td>185</td><td>3 min</td></tr>
+<tr><td>1</td><td></td><td>Lat pulldown</td><td>3</td><td>10-12</td><td>8</td><td>140</td><td>90 sec</td></tr>
+<tr><td>1</td><td>Lower A</td><td>Squat</td><td>3</td><td>5</td><td>8</td><td>245</td><td>3 min</td></tr>
+</tbody></table></div>
+<p>The second row has no day name, so it stays on Upper A. Weeks can repeat as many times as your program has weeks.</p>
+<h2 id="after">After you import</h2>
+<p>Check the preview, then save. Every day becomes a session on your plan. If a row has a percentage, Caliber turns it into a weight from your maxes. If the weight is blank and there is no percentage, you enter it in your first session, and your logged RIR or RPE takes it from there.</p>
+
+<section class="incaliber" aria-labelledby="in-caliber">
+  <div class="phone"><img src="/assets/img/app-today.jpg" alt="Caliber Today screen showing an imported session" width="600" height="1301" loading="lazy"></div>
+  <div><h2 id="in-caliber">Bring your program to Caliber</h2><p>Import once and every day becomes a live workout with rest timers, plate math and set-by-set adjustments from your RIR or RPE. When your program ends, Caliber can continue with six-week blocks built from your new numbers.</p>
+  <div class="cta"><a class="btn" href="/#join">Join the waitlist</a><a class="btn ghost" href="/#fit">Will Caliber run your program?</a></div></div>
+</section>
+<h2 id="faq">Frequently asked questions</h2>
+<div class="faq"><details><summary>Can I import a program I bought?</summary><p>Yes. If you have the spreadsheet, export the program tab to Excel or CSV and import it. Caliber only reads your copy; nothing is shared.</p></details><details><summary>What if my spreadsheet doesn’t use these column names?</summary><p>Caliber recognizes common names for each column, such as Wk, Session, Load or %1RM. If a column still isn’t read, rename its header to one of the names below.</p></details><details><summary>How do I write a set range like 6 to 8 reps?</summary><p>Type it as 6-8. Caliber reads text, so Excel can’t turn it into a date.</p></details><details><summary>How do I mark an AMRAP set?</summary><p>Put the number of reps in Reps (for example 5) and write AMRAP in the Technique column. Caliber shows it as a last-set note.</p></details><details><summary>How do back-off sets work?</summary><p>Add another row for the same exercise right below the first, with its own sets and reps. Caliber keeps them together as one exercise with two set groups.</p></details></div>
+<h2>Keep reading</h2><div class="cards"><a class="card" href="/guides/gzclp/"><small>Programs</small><b>GZCLP explained</b><span>T1, T2 and T3, the stall stages, and a free template.</span></a><a class="card" href="/guides/531-boring-but-big/"><small>Programs</small><b>5/3/1 Boring But Big</b><span>Wendler’s main-lift wave plus 5×10 for size.</span></a><a class="card" href="/guides/nsuns-531-app/"><small>Programs</small><b>How to run nSuns 5/3/1 in an app</b><span>The structure, the AMRAP progression, and what comes after.</span></a></div>
+<section class="endcta" aria-labelledby="endcta-h">
+  <h2 id="endcta-h">Strong never ends.</h2>
+  <p class="muted" style="margin:0">Caliber runs your program, adapts every set, and builds the next block when this one ends. Coming to iPhone with a 14-day free trial. Join the waitlist for the $49.99 founding price.</p>
+  <div class="row"><a class="btn" href="/#join">Join the waitlist</a><a class="btn ghost" href="/#fit">Will Caliber run your program?</a></div>
+</section>
+</article>
+</main>
+<footer><div class="wrap">
+  <span>© 2026 Caliber: Perpetual Training</span>
+  <span><a href="/guides/">Guides</a> · <a href="/tools/plate-calculator/">Plate calculator</a> · <a href="/tools/warm-up-calculator/">Warm-up calculator</a> · <a href="/tools/rpe-calculator/">RPE calculator</a> · <a href="/compare/">Compare</a> · <a href="/#pricing">Pricing</a> · <a href="https://legal.caliberperpetual.com/privacy">Privacy</a> · <a href="mailto:amayer@caliberperpetual.com">Contact</a></span>
+</div></footer>
+</body>
+</html>

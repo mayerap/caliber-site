@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RPE Calculator: Estimated Max and Next-Set Weight</title>
+<meta name="description" content="Free RPE and RIR calculator: estimate your one-rep max from any set and get the weight for your next set at the reps and effort you choose.">
+<link rel="canonical" href="https://caliberperpetual.com/tools/rpe-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="RPE Calculator: Estimated Max and Next-Set Weight">
+<meta property="og:description" content="Free RPE and RIR calculator: estimate your one-rep max from any set and get the weight for your next set at the reps and effort you choose.">
+<meta property="og:url" content="https://caliberperpetual.com/tools/rpe-calculator/">
+<meta property="og:site_name" content="Caliber: Perpetual Training">
+<meta property="og:image" content="https://caliberperpetual.com/assets/img/app-today.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14110E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M24.14 8.6A11 11 0 1 0 24.14 23.4' fill='none' stroke='%23F2EDE6' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.6' fill='%23FF8A3D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Caliber RPE calculator", "url": "https://caliberperpetual.com/tools/rpe-calculator/", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How accurate is an estimated max?", "acceptedAnswer": {"@type": "Answer", "text": "It is an estimate. Formulas like Epley are most reliable for sets of about 10 reps or fewer, and your RPE rating adds its own error of about a rep. Use it to choose training weights, not to declare a new max."}}, {"@type": "Question", "name": "Why does the calculator add reps in reserve?", "acceptedAnswer": {"@type": "Answer", "text": "A set of 5 at RPE 8 means you could have done about 7. Adding the reps in reserve gives a better estimate than treating every set as a max effort."}}, {"@type": "Question", "name": "Should I use RPE or RIR?", "acceptedAnswer": {"@type": "Answer", "text": "Either. They convert directly: RPE = 10 − RIR. Use whichever your program is written in."}}, {"@type": "Question", "name": "What target RPE should I use?", "acceptedAnswer": {"@type": "Answer", "text": "Most working sets sit between RPE 7 and 9. Heavier, lower-rep work usually sits at the higher end."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://caliberperpetual.com/"}, {"@type": "ListItem", "position": 2, "name": "RPE calculator", "item": "https://caliberperpetual.com/tools/rpe-calculator/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="/" aria-label="Caliber: Perpetual Training home"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M24.14 8.6A11 11 0 1 0 24.14 23.4" fill="none" stroke="var(--text)" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="var(--ember-hot)"/></svg><span>CALIBER</span></a>
+  <nav class="nav-links" aria-label="Main">
+    <a class="hide-xs" href="/guides/">Guides</a>
+    <a class="hide-sm" href="/tools/plate-calculator/">Plate calculator</a>
+    <a class="btn" href="/#join">Join the waitlist</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="article" style="max-width:1000px">
+<p class="crumbs"><a href="/">Home</a> / Tools / RPE calculator</p>
+<h1>RPE and RIR load calculator</h1>
+<p class="answer">Enter a set you just did and how hard it felt. The calculator estimates your one-rep max and the weight for your next set at any reps and effort you choose.</p>
+<style>
+.tool{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0 8px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.f{display:flex;flex-direction:column;font-size:14px;color:var(--muted);gap:6px;margin-bottom:14px}
+.f input,.f select{height:46px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit;font-size:17px;padding:0 12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.big{font-size:clamp(30px,4vw,40px);font-weight:780;font-variation-settings:"wdth" 112;line-height:1.1;margin:4px 0 12px;font-variant-numeric:tabular-nums}
+.lab{font-size:14px;color:var(--muted);display:block}
+.res td,.res th{padding:9px 12px}
+@media (max-width:760px){.tool{grid-template-columns:1fr}}
+</style>
+<section class="tool" aria-label="RPE and RIR load calculator">
+  <div class="panel">
+    <p class="lab" style="margin-bottom:10px">A set you did</p>
+    <div class="two">
+      <label class="f">Weight<input id="w" type="number" inputmode="decimal" min="0" value="225"></label>
+      <label class="f">Reps<input id="r" type="number" inputmode="numeric" min="1" max="15" value="5"></label>
+    </div>
+    <div class="two">
+      <label class="f">Effort scale<select id="s"><option value="rpe">RPE</option><option value="rir">RIR</option></select></label>
+      <label class="f">Effort<select id="e"></select></label>
+    </div>
+    <p class="lab" style="margin:6px 0 10px">The set you want next</p>
+    <div class="two">
+      <label class="f">Target reps<input id="tr" type="number" inputmode="numeric" min="1" max="15" value="3"></label>
+      <label class="f">Target effort<select id="te"></select></label>
+    </div>
+    <label class="f">Units<select id="u"><option value="lb">lb</option><option value="kg">kg</option></select></label>
+  </div>
+  <div class="panel" aria-live="polite">
+    <span class="lab">Estimated one-rep max</span><div class="big" id="max">—</div>
+    <span class="lab">Suggested weight for your next set</span><div class="big" id="next">—</div>
+    <div class="table-wrap"><table class="data res"><thead><tr><th scope="col">Reps</th><th scope="col">Weight at your target effort</th></tr></thead><tbody id="tbl"></tbody></table></div>
+  </div>
+</section>
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const RPE = [10,9.5,9,8.5,8,7.5,7,6.5,6], RIR = [0,1,2,3,4];
+  function opts(){ const s = $('s').value, L = s === 'rpe' ? RPE : RIR;
+    const mk = (id, def) => { $(id).innerHTML = L.map(v => `<option value="${v}" ${v === def ? 'selected' : ''}>${s === 'rpe' ? 'RPE ' + v : v + ' RIR'}</option>`).join(''); };
+    mk('e', s === 'rpe' ? 8 : 2); mk('te', s === 'rpe' ? 8 : 2); }
+  const rir = v => $('s').value === 'rpe' ? 10 - v : v;
+  function calc(){
+    const w = +$('w').value, r = +$('r').value, u = $('u').value, step = u === 'lb' ? 5 : 2.5;
+    if(!(w > 0 && r > 0)){ $('max').textContent = $('next').textContent = '—'; $('tbl').innerHTML = ''; return; }
+    const e1 = w * (1 + (r + rir(+$('e').value)) / 30), tr = +$('tr').value, tir = rir(+$('te').value);
+    const at = n => Math.round(e1 / (1 + (n + tir) / 30) / step) * step;
+    $('max').textContent = `${Math.round(e1)} ${u}`;
+    $('next').textContent = tr > 0 ? `${at(tr)} ${u} × ${tr}` : '—';
+    $('tbl').innerHTML = [1,2,3,4,5,6,8,10,12].map(n => `<tr><td>${n}</td><td>${at(n)} ${u}</td></tr>`).join('');
+  }
+  $('s').addEventListener('change', () => { opts(); calc(); });
+  ['w','r','e','tr','te','u'].forEach(id => $(id).addEventListener('input', calc));
+  ['e','te','u'].forEach(id => $(id).addEventListener('change', calc));
+  opts(); calc();
+})();
+</script>
+<h2 id="how">How it works</h2>
+<p>The calculator adds your reps in reserve to the reps you did, then uses the Epley formula to estimate a one-rep max: weight × (1 + total reps ÷ 30). It reverses the same formula for your target reps and effort, then rounds to 5 lb or 2.5 kg.</p>
+<p class="note">Estimates are most reliable for sets of about 10 reps or fewer. On long sets, people tend to have a little more in reserve than they think, as a <a href="https://pubmed.ncbi.nlm.nih.gov/34542869/" rel="noopener">2022 review</a> found.</p>
+<div class="incaliber" style="margin-top:28px"><div class="phone"><img src="/assets/img/app-logger.jpg" alt="Caliber logger with a reps-in-reserve selector" width="600" height="1301" loading="lazy"></div>
+<div><h2>This math runs on every set in Caliber</h2><p>Log RIR or RPE with one tap and Caliber adjusts your next set’s load automatically, so you never stop to calculate between sets.</p>
+<div class="cta"><a class="btn" href="/#join">Join the waitlist</a><a class="btn ghost" href="/guides/rir-vs-rpe/">RIR vs RPE guide</a></div></div></div>
+<h2 id="faq">Frequently asked questions</h2>
+<div class="faq"><details><summary>How accurate is an estimated max?</summary><p>It is an estimate. Formulas like Epley are most reliable for sets of about 10 reps or fewer, and your RPE rating adds its own error of about a rep. Use it to choose training weights, not to declare a new max.</p></details><details><summary>Why does the calculator add reps in reserve?</summary><p>A set of 5 at RPE 8 means you could have done about 7. Adding the reps in reserve gives a better estimate than treating every set as a max effort.</p></details><details><summary>Should I use RPE or RIR?</summary><p>Either. They convert directly: RPE = 10 − RIR. Use whichever your program is written in.</p></details><details><summary>What target RPE should I use?</summary><p>Most working sets sit between RPE 7 and 9. Heavier, lower-rep work usually sits at the higher end.</p></details></div>
+<h2>Keep reading</h2><div class="cards"><a class="card" href="/guides/rir-vs-rpe/"><small>Training concepts</small><b>RIR vs RPE</b><span>What reps in reserve and RPE mean, with a conversion chart.</span></a><a class="card" href="/tools/warm-up-calculator/"><small>Free tool</small><b>Warm-up calculator</b><span>Plate-friendly warm-up sets for any working weight.</span></a><a class="card" href="/tools/plate-calculator/"><small>Free tool</small><b>Plate calculator for the plates you own</b><span>Closest loadable weight from your real plate set, lb or kg.</span></a></div>
+</article>
+</main>
+<footer><div class="wrap">
+  <span>© 2026 Caliber: Perpetual Training</span>
+  <span><a href="/guides/">Guides</a> · <a href="/tools/plate-calculator/">Plate calculator</a> · <a href="/tools/warm-up-calculator/">Warm-up calculator</a> · <a href="/tools/rpe-calculator/">RPE calculator</a> · <a href="/compare/">Compare</a> · <a href="/#pricing">Pricing</a> · <a href="https://legal.caliberperpetual.com/privacy">Privacy</a> · <a href="mailto:amayer@caliberperpetual.com">Contact</a></span>
+</div></footer>
+</body>
+</html>

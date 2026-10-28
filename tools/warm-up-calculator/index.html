@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Warm-Up Calculator for Squat, Bench and Deadlift</title>
+<meta name="description" content="Free warm-up calculator: enter your working weight and reps to get plate-friendly warm-up sets from the bar to your work sets, in lb or kg.">
+<link rel="canonical" href="https://caliberperpetual.com/tools/warm-up-calculator/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Warm-Up Calculator for Squat, Bench and Deadlift">
+<meta property="og:description" content="Free warm-up calculator: enter your working weight and reps to get plate-friendly warm-up sets from the bar to your work sets, in lb or kg.">
+<meta property="og:url" content="https://caliberperpetual.com/tools/warm-up-calculator/">
+<meta property="og:site_name" content="Caliber: Perpetual Training">
+<meta property="og:image" content="https://caliberperpetual.com/assets/img/app-today.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#14110E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M24.14 8.6A11 11 0 1 0 24.14 23.4' fill='none' stroke='%23F2EDE6' stroke-width='5'/%3E%3Ccircle cx='16' cy='16' r='4.6' fill='%23FF8A3D'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Caliber warm-up calculator", "url": "https://caliberperpetual.com/tools/warm-up-calculator/", "applicationCategory": "HealthApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many warm-up sets do I need?", "acceptedAnswer": {"@type": "Answer", "text": "Heavier work needs more. For sets of 5 or fewer, four or five warm-up sets is common. For sets of 8 or more, two or three is usually enough."}}, {"@type": "Question", "name": "Why do the reps go down as the weight goes up?", "acceptedAnswer": {"@type": "Answer", "text": "Warm-ups prepare you without tiring you. Fewer reps at heavier weights let you feel the load and groove technique while saving energy for the work sets."}}, {"@type": "Question", "name": "Should I warm up every exercise?", "acceptedAnswer": {"@type": "Answer", "text": "Warm up the first heavy lift fully. Later exercises that use the same muscles often need only one or two lighter sets."}}, {"@type": "Question", "name": "Does this work in kilograms?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Choose kg, and loads round to 2.5 kg steps with a 20 kg bar by default."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://caliberperpetual.com/"}, {"@type": "ListItem", "position": 2, "name": "Warm-up calculator", "item": "https://caliberperpetual.com/tools/warm-up-calculator/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav"><div class="wrap">
+  <a class="brand" href="/" aria-label="Caliber: Perpetual Training home"><svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><path d="M24.14 8.6A11 11 0 1 0 24.14 23.4" fill="none" stroke="var(--text)" stroke-width="5"/><circle cx="16" cy="16" r="4.6" fill="var(--ember-hot)"/></svg><span>CALIBER</span></a>
+  <nav class="nav-links" aria-label="Main">
+    <a class="hide-xs" href="/guides/">Guides</a>
+    <a class="hide-sm" href="/tools/plate-calculator/">Plate calculator</a>
+    <a class="btn" href="/#join">Join the waitlist</a>
+  </nav>
+</div></header>
+<main id="main">
+<article class="article" style="max-width:1000px">
+<p class="crumbs"><a href="/">Home</a> / Tools / Warm-up calculator</p>
+<h1>Warm-up calculator</h1>
+<p class="answer">Enter your working weight and reps. You get warm-up sets that ramp from the empty bar to your work sets, rounded to loadable weights, with plates per side.</p>
+<style>
+.tool{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0 8px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:20px}
+.f{display:flex;flex-direction:column;font-size:14px;color:var(--muted);gap:6px;margin-bottom:14px}
+.f input,.f select{height:46px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit;font-size:17px;padding:0 12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.big{font-size:clamp(30px,4vw,40px);font-weight:780;font-variation-settings:"wdth" 112;line-height:1.1;margin:4px 0 12px;font-variant-numeric:tabular-nums}
+.lab{font-size:14px;color:var(--muted);display:block}
+.res td,.res th{padding:9px 12px}
+@media (max-width:760px){.tool{grid-template-columns:1fr}}
+</style>
+<section class="tool" aria-label="Warm-up calculator">
+  <div class="panel">
+    <div class="two">
+      <label class="f">Units<select id="u"><option value="lb">lb</option><option value="kg">kg</option></select></label>
+      <label class="f">Bar<select id="bar"></select></label>
+    </div>
+    <div class="two">
+      <label class="f">Working weight<input id="w" type="number" inputmode="decimal" min="0" value="275"></label>
+      <label class="f">Working reps<input id="r" type="number" inputmode="numeric" min="1" max="20" value="5"></label>
+    </div>
+  </div>
+  <div class="panel" aria-live="polite">
+    <span class="lab">Warm-up sets</span>
+    <div class="table-wrap" style="margin-top:8px"><table class="data res"><thead><tr><th scope="col">Set</th><th scope="col">Weight</th><th scope="col">Reps</th><th scope="col">Plates per side</th></tr></thead><tbody id="out"></tbody></table></div>
+    <p class="muted" style="font-size:15px;margin:0">Rest about a minute between early sets and a bit longer before your first work set.</p>
+  </div>
+</section>
+<script>
+(function(){
+  const PL = { lb:[45,35,25,10,5,2.5], kg:[25,20,15,10,5,2.5,1.25] }, BARS = { lb:[45,35,15], kg:[20,15,10] };
+  const $ = id => document.getElementById(id);
+  const plates = (total, bar, u) => { let side = (total - bar) / 2, out = []; for(const p of PL[u]){ while(side >= p - 1e-9){ out.push(p); side -= p; } } return out.length ? out.join(' + ') : 'Empty bar'; };
+  function bars(){ const u = $('u').value; $('bar').innerHTML = BARS[u].map(b => `<option>${b}</option>`).join(''); }
+  function calc(){
+    const u = $('u').value, bar = +$('bar').value, w = +$('w').value, r = +$('r').value, step = u === 'lb' ? 5 : 2.5;
+    const scheme = r <= 5 ? [[0,10],[.4,5],[.6,3],[.75,2],[.85,1]] : r <= 8 ? [[0,10],[.5,5],[.7,3],[.85,1]] : [[0,10],[.55,6],[.75,3]];
+    const rows = [], seen = new Set();
+    if(!(w > bar)){ $('out').innerHTML = `<tr><td colspan="4">Enter a working weight above the bar.</td></tr>`; return; }
+    scheme.forEach(([p, reps]) => {
+      let x = p === 0 ? bar : Math.max(bar, Math.round(w * p / step) * step);
+      if(x >= w || seen.has(x)) return; seen.add(x); rows.push([x, reps]);
+    });
+    $('out').innerHTML = rows.map(([x, n], i) => `<tr><td>${i + 1}</td><td>${x} ${u}</td><td>${n}</td><td>${plates(x, bar, u)}</td></tr>`).join('') +
+      `<tr><td><b>Work</b></td><td><b>${w} ${u}</b></td><td><b>${r}</b></td><td>${plates(w, bar, u)}</td></tr>`;
+  }
+  $('u').addEventListener('change', () => { bars(); $('w').value = $('u').value === 'lb' ? 275 : 125; calc(); });
+  ['bar','w','r'].forEach(id => $(id).addEventListener('input', calc));
+  bars(); calc();
+})();
+</script>
+<h2 id="how">How the warm-up is built</h2>
+<p>Warm-ups climb in percentage of your working weight while reps fall. For heavy sets of 5 or fewer, the ramp is the bar for 10, then about 40%, 60%, 75% and 85% of your working weight. Sets of 6 to 8 use a shorter ramp, and higher-rep work needs only a couple of sets. Every weight rounds to 5 lb (or 2.5 kg) steps, and duplicate or too-heavy sets are dropped.</p>
+<h2 id="tips">Tips</h2>
+<ul>
+  <li><b>Move each warm-up with intent.</b> Treat them as practice reps, not filler.</li>
+  <li><b>Add a set on cold or stiff days.</b> An extra light set costs almost nothing.</li>
+  <li><b>Don’t warm up to fatigue.</b> If warm-ups feel hard, cut the reps, not the sets.</li>
+</ul>
+<div class="incaliber" style="margin-top:28px"><div class="phone"><img src="/assets/img/app-logger.jpg" alt="Caliber logger showing warm-up sets above the working sets" width="600" height="1301" loading="lazy"></div>
+<div><h2>Warm-ups built in, in Caliber</h2><p>Caliber adds warm-up sets above your first heavy lift automatically, with plate math for each one, so you never do this math between sets.</p>
+<div class="cta"><a class="btn" href="/#join">Join the waitlist</a><a class="btn ghost" href="/tools/plate-calculator/">Plate calculator</a></div></div></div>
+<h2 id="faq">Frequently asked questions</h2>
+<div class="faq"><details><summary>How many warm-up sets do I need?</summary><p>Heavier work needs more. For sets of 5 or fewer, four or five warm-up sets is common. For sets of 8 or more, two or three is usually enough.</p></details><details><summary>Why do the reps go down as the weight goes up?</summary><p>Warm-ups prepare you without tiring you. Fewer reps at heavier weights let you feel the load and groove technique while saving energy for the work sets.</p></details><details><summary>Should I warm up every exercise?</summary><p>Warm up the first heavy lift fully. Later exercises that use the same muscles often need only one or two lighter sets.</p></details><details><summary>Does this work in kilograms?</summary><p>Yes. Choose kg, and loads round to 2.5 kg steps with a 20 kg bar by default.</p></details></div>
+<h2>Keep reading</h2><div class="cards"><a class="card" href="/tools/plate-calculator/"><small>Free tool</small><b>Plate calculator for the plates you own</b><span>Closest loadable weight from your real plate set, lb or kg.</span></a><a class="card" href="/tools/rpe-calculator/"><small>Free tool</small><b>RPE and RIR load calculator</b><span>Estimate your max and your next set’s weight.</span></a><a class="card" href="/guides/rir-vs-rpe/"><small>Training concepts</small><b>RIR vs RPE</b><span>What reps in reserve and RPE mean, with a conversion chart.</span></a></div>
+</article>
+</main>
+<footer><div class="wrap">
+  <span>© 2026 Caliber: Perpetual Training</span>
+  <span><a href="/guides/">Guides</a> · <a href="/tools/plate-calculator/">Plate calculator</a> · <a href="/tools/warm-up-calculator/">Warm-up calculator</a> · <a href="/tools/rpe-calculator/">RPE calculator</a> · <a href="/compare/">Compare</a> · <a href="/#pricing">Pricing</a> · <a href="https://legal.caliberperpetual.com/privacy">Privacy</a> · <a href="mailto:amayer@caliberperpetual.com">Contact</a></span>
+</div></footer>
+</body>
+</html>
