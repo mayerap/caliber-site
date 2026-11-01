@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Add a friend on Caliber</title>
+<!-- caliberperpetual.com/add/?c=<code>: a friend invite shared from the app (Profile, Friends, Add friends). Opens Caliber
+     at caliber://friend/<code>, which fills in the code; people without the app get the TestFlight link and the code. -->
+<meta name="robots" content="noindex">
+<meta name="description" content="A friend invited you to Caliber: compare lifts and see each other's workouts.">
+<meta property="og:title" content="Add me as a friend on Caliber">
+<meta property="og:description" content="Compare lifts and see each other's workouts.">
+<meta property="og:image" content="https://caliberperpetual.com/screens/today.jpg">
+<meta name="theme-color" content="#14110E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#ECE8E3;--surface:#F7F4F0;--line:#D2CBC2;--text:#1A1612;--muted:#62594F;--ember:#C9531C;--ink:#fff;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14110E;--surface:#1D1814;--line:#352C24;--text:#F2EDE6;--muted:#A79E93;--ember:#E8662A;--ink:#14110E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14110E;--surface:#1D1814;--line:#352C24;--text:#F2EDE6;--muted:#A79E93;--ember:#E8662A;--ink:#14110E;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:Archivo,system-ui,-apple-system,sans-serif;display:grid;place-items:center;padding:24px 16px}
+main{width:100%;max-width:420px;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px 24px;text-align:center}
+.mark{font-weight:800;font-stretch:72%;letter-spacing:.02em;font-size:22px;margin:0 0 18px}
+.mark b{color:var(--ember)}
+h1{font-stretch:80%;font-size:30px;line-height:1.1;margin:0 0 10px}
+p{color:var(--muted);line-height:1.5;margin:0 0 18px}
+.code{font-size:34px;font-weight:800;letter-spacing:.1em;margin:4px 0 20px;color:var(--text)}
+a.btn{display:block;text-decoration:none;font-weight:700;border-radius:14px;padding:15px 18px;margin:10px 0}
+a.primary{background:var(--ember);color:var(--ink)}
+a.secondary{border:1px solid var(--line);color:var(--text)}
+small{display:block;color:var(--muted);margin-top:14px;line-height:1.5}
+</style>
+</head>
+<body>
+<main>
+  <p class="mark"><b>C</b>ALIBER</p>
+  <h1>You're invited to be friends</h1>
+  <p>Compare lifts and see each other's workouts in Caliber.</p>
+  <div class="code" id="code">—</div>
+  <a class="btn primary" id="open" href="#">Open in Caliber</a>
+  <a class="btn secondary" href="https://testflight.apple.com/join/PNBhgfvy">Get Caliber (TestFlight)</a>
+  <small>Don't have Caliber yet? Install it, then go to Profile, Friends, Add friends and enter the code above.</small>
+</main>
+<script>
+(function(){
+  var c = (new URLSearchParams(location.search).get('c') || '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8);
+  var open = document.getElementById('open');
+  if(c.length !== 8){ document.getElementById('code').textContent = 'No code'; open.style.display = 'none'; return; }
+  document.getElementById('code').textContent = c.slice(0, 4) + '-' + c.slice(4);
+  open.href = 'caliber://friend/' + c;
+  // on an iPhone with Caliber, go straight there
+  if(/iPhone|iPad|iPod/.test(navigator.userAgent)) setTimeout(function(){ location.href = open.href; }, 300);
+})();
+</script>
+</body>
+</html>
